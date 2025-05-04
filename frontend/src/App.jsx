@@ -6,777 +6,780 @@ import './App.css'
 function App() {
   return (
     <>
+    <div style={{ margin: 25 }}>
       <div className="mainGridWrapper">
-        {/* <div class="popularElement">
-          <div class="popularItemContainer">
-              <img src="cat.png">
-              <img src="cat.png">
-              <img src="cat.png">
-          </div>
-      </div> */}
-      <div className="contentElement">
-        <div style={{ display: "flex", flexWrap: "nowrap", gap: 5 }}>
-          <input
-            id="searchBar"
-            type="text"
-            placeholder="Search..."
-            autoComplete="off"
-          />
-          <button id="filterButton">Filter</button>
-          <button id="accountProfilePictureButton">
-            <img src="cat.png" id="accountProfileAvatar" />
-          </button>
-        </div>
-        <div
-          className="accountElementDropDown hidden"
-          id="accountElementDropDown"
-        >
-          <a href="" className="navigationButton">
-            Profile
-          </a>
-          <a href="" className="darkNavigationButton">
-            Followed
-          </a>
-          <a href="" className="darkNavigationButton">
-            My Lists
-          </a>
-          {/* <a href="" class="navigationButton">Sign in</a>
-            <a href="" class="darkNavigationButton">Register</a> */}
-        </div>
-        <div className="filterElement hidden" id="filterElement">
-          <div className="dropDownElement">
-            <label htmlFor="sortBySelect">Sort by</label>
-            <select name="sortBySelect" className="selectElement">
-              <option value="">None</option>
-              <option value="latest">Latest Updates</option>
-              <option value="mostPopular">Most Popular</option>
-            </select>
-          </div>
-          <div className="dropDownElement">
-            <div style={{ display: "flex", flexDirection: "column" }}>
-              <label htmlFor="tagsButton">Filter tags</label>
-              <button name="tagsButton" className="tagsButton" id="tagsButton">
-                <span id="tagsButtonText">None</span>
-              </button>
+          {/* <div class="popularElement">
+            <div class="popularItemContainer">
+                <img src="cat.png">
+                <img src="cat.png">
+                <img src="cat.png">
             </div>
-            {/* Pop up tag filtering container */}
-            <div
-              className="tagFilterContainer initialHidden"
-              id="tagFilterContainer"
-            >
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center"
-                }}
-              >
-                <span style={{ fontSize: 20, color: "white" }}>Filters</span>
-                <button id="closeTagFilterContainerButton">
-                  <svg
-                    width="25px"
-                    height="25px"
-                    viewBox="0 -2 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M19 5L5 19"
-                      stroke="white"
-                      strokeWidth={2}
-                      strokeLinecap="round"
-                    />
-                    <path
-                      d="M5 5L19 19"
-                      stroke="white"
-                      strokeWidth={2}
-                      strokeLinecap="round"
-                    />
-                  </svg>
+        </div> */}
+        <div className="contentElement">
+          <div style={{ display: "flex", flexWrap: "nowrap", gap: 5 }}>
+            <input
+              id="searchBar"
+              type="text"
+              placeholder="Search..."
+              autoComplete="off"
+            />
+            <button id="filterButton">Filter</button>
+            <button id="accountProfilePictureButton">
+              <img src="cat.png" id="accountProfileAvatar" />
+            </button>
+          </div>
+          <div
+            className="accountElementDropDown hidden"
+            id="accountElementDropDown"
+          >
+            <a href="" className="navigationButton">
+              Profile
+            </a>
+            <a href="" className="darkNavigationButton">
+              Followed
+            </a>
+            <a href="" className="darkNavigationButton">
+              My Lists
+            </a>
+            {/* <a href="" class="navigationButton">Sign in</a>
+              <a href="" class="darkNavigationButton">Register</a> */}
+          </div>
+          <div className="filterElement hidden" id="filterElement">
+            <div className="dropDownElement">
+              <label htmlFor="sortBySelect">Sort by</label>
+              <select name="sortBySelect" className="selectElement">
+                <option value="">None</option>
+                <option value="latest">Latest Updates</option>
+                <option value="mostPopular">Most Popular</option>
+              </select>
+            </div>
+            <div className="dropDownElement">
+              <div style={{ display: "flex", flexDirection: "column" }}>
+                <label htmlFor="tagsButton">Filter tags</label>
+                <button name="tagsButton" className="tagsButton" id="tagsButton">
+                  <span id="tagsButtonText">None</span>
                 </button>
               </div>
-              <div className="generalSpace" />
+              {/* Pop up tag filtering container */}
               <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 10,
-                  marginBottom: 5
-                }}
+                className="tagFilterContainer initialHidden"
+                id="tagFilterContainer"
               >
-                <span style={{ color: "white" }}>Genre</span>
-                <hr style={{ width: "100%" }} />
-              </div>
-              <ul className="generalTagsContainer" id="generalTagsContainer">
-                <li className="neutral" data-state="neutral">
-                  Action
-                </li>
-                <li className="neutral" data-state="neutral">
-                  Adventure
-                </li>
-                <li className="neutral" data-state="neutral">
-                  Comedy
-                </li>
-                <li className="neutral" data-state="neutral">
-                  Demons
-                </li>
-                <li className="neutral" data-state="neutral">
-                  Drama
-                </li>
-                <li className="neutral" data-state="neutral">
-                  Fantasy
-                </li>
-                <li className="neutral" data-state="neutral">
-                  Game
-                </li>
-                <li className="neutral" data-state="neutral">
-                  Harem
-                </li>
-                <li className="neutral" data-state="neutral">
-                  Historical
-                </li>
-                <li className="neutral" data-state="neutral">
-                  Horror
-                </li>
-                <li className="neutral" data-state="neutral">
-                  Isekai
-                </li>
-                <li className="neutral" data-state="neutral">
-                  Magic
-                </li>
-                <li className="neutral" data-state="neutral">
-                  Martial Arts
-                </li>
-                <li className="neutral" data-state="neutral">
-                  Mecha
-                </li>
-                <li className="neutral" data-state="neutral">
-                  Military
-                </li>
-                <li className="neutral" data-state="neutral">
-                  Music
-                </li>
-                <li className="neutral" data-state="neutral">
-                  Mystery
-                </li>
-                <li className="neutral" data-state="neutral">
-                  Psychological
-                </li>
-                <li className="neutral" data-state="neutral">
-                  Romance
-                </li>
-                <li className="neutral" data-state="neutral">
-                  School
-                </li>
-                <li className="neutral" data-state="neutral">
-                  Sci-Fi
-                </li>
-                <li className="neutral" data-state="neutral">
-                  Slice of Life
-                </li>
-                <li className="neutral" data-state="neutral">
-                  Sports
-                </li>
-                <li className="neutral" data-state="neutral">
-                  Supernatural
-                </li>
-                <li className="neutral" data-state="neutral">
-                  Thriller
-                </li>
-              </ul>
-              <div className="generalSpace" />
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 10,
-                  marginBottom: 5
-                }}
-              >
-                <span style={{ color: "white" }}>Content</span>
-                <hr style={{ width: "100%" }} />
-              </div>
-              <ul className="contentTagsContainer" id="contentTagsContainer">
-                <li className="neutral" data-state="neutral">
-                  Novel
-                </li>
-                <li className="neutral" data-state="neutral">
-                  Manga
-                </li>
-                <li className="neutral" data-state="neutral">
-                  Anime
-                </li>
-              </ul>
-              <div className="generalSpace" />
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 10,
-                  marginBottom: 5
-                }}
-              >
-                <span style={{ color: "white" }}>Language</span>
-                <hr style={{ width: "100%" }} />
-              </div>
-              <ul className="languageTagsContainer" id="languageTagsContainer">
-                <li className="neutral" data-state="neutral">
-                  English
-                </li>
-                <li className="neutral" data-state="neutral">
-                  Vietnamese
-                </li>
-              </ul>
-              {/* Div containing search and reset buttons */}
-              <div id="tagFilterContainerSearchAndResetButtons">
-                <div className="generalSpace" />
-                <button
-                  className="resetFiltersButton disabled"
-                  id="tagFilterContainerResetButton"
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center"
+                  }}
                 >
-                  Reset Filters
-                </button>
-                <div className="generalSpace" />
-                <button className="searchButton">
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      gap: 5
-                    }}
-                  >
+                  <span style={{ fontSize: 20, color: "white" }}>Filters</span>
+                  <button id="closeTagFilterContainerButton">
                     <svg
-                      width={15}
-                      height={15}
-                      viewBox="0 0 200 200"
+                      width="25px"
+                      height="25px"
+                      viewBox="0 -2 24 24"
+                      fill="none"
                       xmlns="http://www.w3.org/2000/svg"
                     >
-                      <circle
-                        cx={80}
-                        cy={80}
-                        r={50}
+                      <path
+                        d="M19 5L5 19"
                         stroke="white"
-                        strokeWidth={20}
-                        fill="none"
+                        strokeWidth={2}
+                        strokeLinecap="round"
                       />
-                      <line
-                        x1={115}
-                        y1={115}
-                        x2={180}
-                        y2={180}
+                      <path
+                        d="M5 5L19 19"
                         stroke="white"
-                        strokeWidth={20}
+                        strokeWidth={2}
                         strokeLinecap="round"
                       />
                     </svg>
-                    <span>Search</span>
-                  </div>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div className="dropDownElement">
-            <label htmlFor="publicationStatusSelect">Publication Status</label>
-            <select name="publicationStatusSelect" className="selectElement">
-              <option value="">None</option>
-              <option value="ongoing">Ongoing</option>
-              <option value="Hiatus">Hiatus</option>
-              <option value="Cancelled">Cancelled</option>
-            </select>
-          </div>
-          {/* May not be used since it looks a bit strange */}
-          {/* <div class="dropDownElement">
-                <label id="labelForSearchButtonSpacing" style="visibility: hidden;">Why you looking here?</label>
-                <button class="searchButton" id="dropDownSearchButton">
-                    <div style="display: flex; align-items: center; justify-content: center; gap: 5px;">
-                        <svg width="15" height="15" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="80" cy="80" r="50" stroke="white" stroke-width="20" fill="none" />
-                            <line x1="115" y1="115" x2="180" y2="180" stroke="white" stroke-width="20" stroke-linecap="round" />
-                        </svg>
-                        <span>Search</span>
-                    </div>
-                </button>
-            </div>
-
-            <div class="dropDownElement">
-                <label id="labelForSearchButtonSpacing" style="visibility: hidden;">Why you looking here?</label>
-                <button class="resetFiltersButton disabled" id="dropDownResetFiltersButton">Reset Filters</button>
-            </div> */}
-        </div>
-        {/* Format Buttons */}
-        <div style={{ display: "flex", marginTop: 10 }}>
-          <button
-            className="formatButton"
-            id="denseFormatButton"
-            style={{ borderTopLeftRadius: 5, borderBottomLeftRadius: 5 }}
-          >
-            <svg
-              width="24px"
-              height="24px"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <line
-                x1={4}
-                y1={19}
-                x2={20}
-                y2={19}
-                stroke="white"
-                strokeWidth={2}
-                strokeLinecap="round"
-              />
-              <line
-                x1={4}
-                y1={12}
-                x2={20}
-                y2={12}
-                stroke="white"
-                strokeWidth={2}
-                strokeLinecap="round"
-              />
-              <line
-                x1={4}
-                y1={5}
-                x2={20}
-                y2={5}
-                stroke="white"
-                strokeWidth={2}
-                strokeLinecap="round"
-              />
-            </svg>
-          </button>
-          <button className="formatButton active" id="defaultFormatButton">
-            {" "}
-            <svg
-              fill="white"
-              width="24px"
-              height="24px"
-              viewBox="0 0 56 56"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M 8.0663 26.0664 L 47.9334 26.0664 C 51.5195 26.0664 53.3243 24.3086 53.3243 20.6992 L 53.3243 11.7461 C 53.3243 8.1602 51.5195 6.4258 47.9334 6.4258 L 8.0663 6.4258 C 4.4804 6.4258 2.6757 8.1602 2.6757 11.7461 L 2.6757 20.6992 C 2.6757 24.3086 4.4804 26.0664 8.0663 26.0664 Z M 8.3476 22.5274 C 6.9648 22.5274 6.2148 21.8008 6.2148 20.3477 L 6.2148 12.1445 C 6.2148 10.6680 6.9648 9.9649 8.3476 9.9649 L 47.6521 9.9649 C 49.0350 9.9649 49.7852 10.6680 49.7852 12.1445 L 49.7852 20.3477 C 49.7852 21.8008 49.0350 22.5274 47.6521 22.5274 Z M 8.0663 49.5742 L 47.9334 49.5742 C 51.5195 49.5742 53.3243 47.8399 53.3243 44.2305 L 53.3243 35.2539 C 53.3243 31.6914 51.5195 29.9336 47.9334 29.9336 L 8.0663 29.9336 C 4.4804 29.9336 2.6757 31.6914 2.6757 35.2539 L 2.6757 44.2305 C 2.6757 47.8399 4.4804 49.5742 8.0663 49.5742 Z M 8.3476 46.0352 C 6.9648 46.0352 6.2148 45.3086 6.2148 43.8555 L 6.2148 35.6523 C 6.2148 34.1758 6.9648 33.4727 8.3476 33.4727 L 47.6521 33.4727 C 49.0350 33.4727 49.7852 34.1758 49.7852 35.6523 L 49.7852 43.8555 C 49.7852 45.3086 49.0350 46.0352 47.6521 46.0352 Z" />
-            </svg>
-          </button>
-          <button
-            className="formatButton"
-            id="compactFormatButton"
-            style={{ borderTopRightRadius: 5, borderBottomRightRadius: 5 }}
-          >
-            {" "}
-            <svg
-              fill="white"
-              width="24px"
-              height="24px"
-              viewBox="0 0 56 56"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M 6.4140 26.0664 L 21.5781 26.0664 C 24.5547 26.0664 26.0547 24.5664 26.0547 21.4727 L 26.0547 10.9961 C 26.0547 7.9023 24.5547 6.4258 21.5781 6.4258 L 6.4140 6.4258 C 3.4375 6.4258 1.9375 7.9023 1.9375 10.9961 L 1.9375 21.4727 C 1.9375 24.5664 3.4375 26.0664 6.4140 26.0664 Z M 34.4219 26.0664 L 49.5860 26.0664 C 52.5625 26.0664 54.0625 24.5664 54.0625 21.4727 L 54.0625 10.9961 C 54.0625 7.9023 52.5625 6.4258 49.5860 6.4258 L 34.4219 6.4258 C 31.4453 6.4258 29.9453 7.9023 29.9453 10.9961 L 29.9453 21.4727 C 29.9453 24.5664 31.4453 26.0664 34.4219 26.0664 Z M 6.4609 22.7617 C 5.6406 22.7617 5.2421 22.3398 5.2421 21.4727 L 5.2421 10.9961 C 5.2421 10.1523 5.6406 9.7305 6.4609 9.7305 L 21.5312 9.7305 C 22.3281 9.7305 22.7500 10.1523 22.7500 10.9961 L 22.7500 21.4727 C 22.7500 22.3398 22.3281 22.7617 21.5312 22.7617 Z M 34.4921 22.7617 C 33.6484 22.7617 33.2500 22.3398 33.2500 21.4727 L 33.2500 10.9961 C 33.2500 10.1523 33.6484 9.7305 34.4921 9.7305 L 49.5625 9.7305 C 50.3593 9.7305 50.7577 10.1523 50.7577 10.9961 L 50.7577 21.4727 C 50.7577 22.3398 50.3593 22.7617 49.5625 22.7617 Z M 6.4140 49.5742 L 21.5781 49.5742 C 24.5547 49.5742 26.0547 48.0977 26.0547 45.0039 L 26.0547 34.5039 C 26.0547 31.4336 24.5547 29.9336 21.5781 29.9336 L 6.4140 29.9336 C 3.4375 29.9336 1.9375 31.4336 1.9375 34.5039 L 1.9375 45.0039 C 1.9375 48.0977 3.4375 49.5742 6.4140 49.5742 Z M 34.4219 49.5742 L 49.5860 49.5742 C 52.5625 49.5742 54.0625 48.0977 54.0625 45.0039 L 54.0625 34.5039 C 54.0625 31.4336 52.5625 29.9336 49.5860 29.9336 L 34.4219 29.9336 C 31.4453 29.9336 29.9453 31.4336 29.9453 34.5039 L 29.9453 45.0039 C 29.9453 48.0977 31.4453 49.5742 34.4219 49.5742 Z M 6.4609 46.2695 C 5.6406 46.2695 5.2421 45.8477 5.2421 45.0039 L 5.2421 34.5274 C 5.2421 33.6602 5.6406 33.2383 6.4609 33.2383 L 21.5312 33.2383 C 22.3281 33.2383 22.7500 33.6602 22.7500 34.5274 L 22.7500 45.0039 C 22.7500 45.8477 22.3281 46.2695 21.5312 46.2695 Z M 34.4921 46.2695 C 33.6484 46.2695 33.2500 45.8477 33.2500 45.0039 L 33.2500 34.5274 C 33.2500 33.6602 33.6484 33.2383 34.4921 33.2383 L 49.5625 33.2383 C 50.3593 33.2383 50.7577 33.6602 50.7577 34.5274 L 50.7577 45.0039 C 50.7577 45.8477 50.3593 46.2695 49.5625 46.2695 Z" />
-            </svg>
-          </button>
-          <div
-            style={{
-              display: "flex",
-              marginLeft: "auto",
-              gap: 2,
-              paddingLeft: 2,
-              alignItems: "center"
-            }}
-          >
-            <button className="searchButton" style={{ height: "90%" }}>
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  gap: 5
-                }}
-              >
-                <svg
-                  width={15}
-                  height={15}
-                  viewBox="0 0 200 200"
-                  xmlns="http://www.w3.org/2000/svg"
+                  </button>
+                </div>
+                <div className="generalSpace" />
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 10,
+                    marginBottom: 5
+                  }}
                 >
-                  <circle
-                    cx={80}
-                    cy={80}
-                    r={50}
-                    stroke="white"
-                    strokeWidth={20}
-                    fill="none"
-                  />
-                  <line
-                    x1={115}
-                    y1={115}
-                    x2={180}
-                    y2={180}
-                    stroke="white"
-                    strokeWidth={20}
-                    strokeLinecap="round"
-                  />
-                </svg>
-                <span>Search</span>
+                  <span style={{ color: "white" }}>Genre</span>
+                  <hr style={{ width: "100%" }} />
+                </div>
+                <ul className="generalTagsContainer" id="generalTagsContainer">
+                  <li className="neutral" data-state="neutral">
+                    Action
+                  </li>
+                  <li className="neutral" data-state="neutral">
+                    Adventure
+                  </li>
+                  <li className="neutral" data-state="neutral">
+                    Comedy
+                  </li>
+                  <li className="neutral" data-state="neutral">
+                    Demons
+                  </li>
+                  <li className="neutral" data-state="neutral">
+                    Drama
+                  </li>
+                  <li className="neutral" data-state="neutral">
+                    Fantasy
+                  </li>
+                  <li className="neutral" data-state="neutral">
+                    Game
+                  </li>
+                  <li className="neutral" data-state="neutral">
+                    Harem
+                  </li>
+                  <li className="neutral" data-state="neutral">
+                    Historical
+                  </li>
+                  <li className="neutral" data-state="neutral">
+                    Horror
+                  </li>
+                  <li className="neutral" data-state="neutral">
+                    Isekai
+                  </li>
+                  <li className="neutral" data-state="neutral">
+                    Magic
+                  </li>
+                  <li className="neutral" data-state="neutral">
+                    Martial Arts
+                  </li>
+                  <li className="neutral" data-state="neutral">
+                    Mecha
+                  </li>
+                  <li className="neutral" data-state="neutral">
+                    Military
+                  </li>
+                  <li className="neutral" data-state="neutral">
+                    Music
+                  </li>
+                  <li className="neutral" data-state="neutral">
+                    Mystery
+                  </li>
+                  <li className="neutral" data-state="neutral">
+                    Psychological
+                  </li>
+                  <li className="neutral" data-state="neutral">
+                    Romance
+                  </li>
+                  <li className="neutral" data-state="neutral">
+                    School
+                  </li>
+                  <li className="neutral" data-state="neutral">
+                    Sci-Fi
+                  </li>
+                  <li className="neutral" data-state="neutral">
+                    Slice of Life
+                  </li>
+                  <li className="neutral" data-state="neutral">
+                    Sports
+                  </li>
+                  <li className="neutral" data-state="neutral">
+                    Supernatural
+                  </li>
+                  <li className="neutral" data-state="neutral">
+                    Thriller
+                  </li>
+                </ul>
+                <div className="generalSpace" />
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 10,
+                    marginBottom: 5
+                  }}
+                >
+                  <span style={{ color: "white" }}>Content</span>
+                  <hr style={{ width: "100%" }} />
+                </div>
+                <ul className="contentTagsContainer" id="contentTagsContainer">
+                  <li className="neutral" data-state="neutral">
+                    Novel
+                  </li>
+                  <li className="neutral" data-state="neutral">
+                    Manga
+                  </li>
+                  <li className="neutral" data-state="neutral">
+                    Anime
+                  </li>
+                </ul>
+                <div className="generalSpace" />
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 10,
+                    marginBottom: 5
+                  }}
+                >
+                  <span style={{ color: "white" }}>Language</span>
+                  <hr style={{ width: "100%" }} />
+                </div>
+                <ul className="languageTagsContainer" id="languageTagsContainer">
+                  <li className="neutral" data-state="neutral">
+                    English
+                  </li>
+                  <li className="neutral" data-state="neutral">
+                    Vietnamese
+                  </li>
+                </ul>
+                {/* Div containing search and reset buttons */}
+                <div id="tagFilterContainerSearchAndResetButtons">
+                  <div className="generalSpace" />
+                  <button
+                    className="resetFiltersButton disabled"
+                    id="tagFilterContainerResetButton"
+                  >
+                    Reset Filters
+                  </button>
+                  <div className="generalSpace" />
+                  <button className="searchButton">
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        gap: 5
+                      }}
+                    >
+                      <svg
+                        width={15}
+                        height={15}
+                        viewBox="0 0 200 200"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <circle
+                          cx={80}
+                          cy={80}
+                          r={50}
+                          stroke="white"
+                          strokeWidth={20}
+                          fill="none"
+                        />
+                        <line
+                          x1={115}
+                          y1={115}
+                          x2={180}
+                          y2={180}
+                          stroke="white"
+                          strokeWidth={20}
+                          strokeLinecap="round"
+                        />
+                      </svg>
+                      <span>Search</span>
+                    </div>
+                  </button>
+                </div>
               </div>
-            </button>
+            </div>
+            <div className="dropDownElement">
+              <label htmlFor="publicationStatusSelect">Publication Status</label>
+              <select name="publicationStatusSelect" className="selectElement">
+                <option value="">None</option>
+                <option value="ongoing">Ongoing</option>
+                <option value="Hiatus">Hiatus</option>
+                <option value="Cancelled">Cancelled</option>
+              </select>
+            </div>
+            {/* May not be used since it looks a bit strange */}
+            {/* <div class="dropDownElement">
+                  <label id="labelForSearchButtonSpacing" style="visibility: hidden;">Why you looking here?</label>
+                  <button class="searchButton" id="dropDownSearchButton">
+                      <div style="display: flex; align-items: center; justify-content: center; gap: 5px;">
+                          <svg width="15" height="15" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                              <circle cx="80" cy="80" r="50" stroke="white" stroke-width="20" fill="none" />
+                              <line x1="115" y1="115" x2="180" y2="180" stroke="white" stroke-width="20" stroke-linecap="round" />
+                          </svg>
+                          <span>Search</span>
+                      </div>
+                  </button>
+              </div>
+
+              <div class="dropDownElement">
+                  <label id="labelForSearchButtonSpacing" style="visibility: hidden;">Why you looking here?</label>
+                  <button class="resetFiltersButton disabled" id="dropDownResetFiltersButton">Reset Filters</button>
+              </div> */}
+          </div>
+          {/* Format Buttons */}
+          <div style={{ display: "flex", marginTop: 10 }}>
             <button
-              className="resetFiltersButton disabled"
-              style={{ height: "90%" }}
-            >
-              Reset Filters
-            </button>
-          </div>
-        </div>
-        {/* Cards */}
-        <div className="contentGridWrapper" id="cardContainer">
-          {/* Normal Cards */}
-          <div className="contentDisplayCard">
-            <img src="cat.png" />
-            <span className="contentName">Cat</span>
-            <div className="contentStats">
-              <svg
-                fill="#eab308"
-                width="20px"
-                height="20px"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M9.362 9.158l-5.268.584c-.19.023-.358.15-.421.343s0 .394.14.521c1.566 1.429 3.919 3.569 3.919 3.569-.002 0-.646 3.113-1.074 5.19-.036.188.032.387.196.506.163.119.373.121.538.028 1.844-1.048 4.606-2.624 4.606-2.624l4.604 2.625c.168.092.378.09.541-.029.164-.119.232-.318.195-.505l-1.071-5.191 3.919-3.566c.14-.131.202-.332.14-.524s-.23-.319-.42-.341c-2.108-.236-5.269-.586-5.269-.586l-2.183-4.83c-.082-.173-.254-.294-.456-.294s-.375.122-.453.294l-2.183 4.83z" />
-              </svg>
-              <p id="rating">7.2</p>
-            </div>
-            <div className="contentStatus">
-              <svg
-                width="24px"
-                height="24px"
-                viewBox="4 5 15 15"
-                fill="lime"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M12 9.5C13.3807 9.5 14.5 10.6193 14.5 12C14.5 13.3807 13.3807 14.5 12 14.5C10.6193 14.5 9.5 13.3807 9.5 12C9.5 10.6193 10.6193 9.5 12 9.5Z" />
-              </svg>
-              <p>Ongoing</p>
-            </div>
-            <div className="contentTags">
-              <div className="contentTag">
-                <span>Comedy</span>
-              </div>
-              <div className="contentTag">
-                <span>Horror</span>
-              </div>
-              <div className="contentTag">
-                <span>Drama</span>
-              </div>
-              <div className="contentTag">
-                <span>Mystery</span>
-              </div>
-              <div className="contentTag">
-                <span>Novel</span>
-              </div>
-              <div className="contentTag">
-                <span>English</span>
-              </div>
-            </div>
-            <p className="contentDescription">Funny cat hehe</p>
-          </div>
-          <div className="contentDisplayCard">
-            <img src="cat.png" />
-            <span className="contentName">
-              ReallyLongCattttttttttttttttttttttttttt
-            </span>
-            <div className="contentStats">
-              <svg
-                fill="#eab308"
-                width="20px"
-                height="20px"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M9.362 9.158l-5.268.584c-.19.023-.358.15-.421.343s0 .394.14.521c1.566 1.429 3.919 3.569 3.919 3.569-.002 0-.646 3.113-1.074 5.19-.036.188.032.387.196.506.163.119.373.121.538.028 1.844-1.048 4.606-2.624 4.606-2.624l4.604 2.625c.168.092.378.09.541-.029.164-.119.232-.318.195-.505l-1.071-5.191 3.919-3.566c.14-.131.202-.332.14-.524s-.23-.319-.42-.341c-2.108-.236-5.269-.586-5.269-.586l-2.183-4.83c-.082-.173-.254-.294-.456-.294s-.375.122-.453.294l-2.183 4.83z" />
-              </svg>
-              <p id="rating">5.6</p>
-            </div>
-            <div className="contentStatus">
-              <svg
-                width="24px"
-                height="24px"
-                viewBox="4 5 15 15"
-                fill="#00c9f5"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M12 9.5C13.3807 9.5 14.5 10.6193 14.5 12C14.5 13.3807 13.3807 14.5 12 14.5C10.6193 14.5 9.5 13.3807 9.5 12C9.5 10.6193 10.6193 9.5 12 9.5Z" />
-              </svg>
-              <p>Completed</p>
-            </div>
-            <div className="contentTags">
-              <div className="contentTag">
-                <span>Comedy</span>
-              </div>
-              <div className="contentTag">
-                <span>Horror</span>
-              </div>
-            </div>
-            <p className="contentDescription">Cat stories done!</p>
-          </div>
-          <div className="contentDisplayCard">
-            <img src="cat.png" />
-            <span className="contentName">Cat3</span>
-            <div className="contentStats">
-              <svg
-                fill="#eab308"
-                width="20px"
-                height="20px"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M9.362 9.158l-5.268.584c-.19.023-.358.15-.421.343s0 .394.14.521c1.566 1.429 3.919 3.569 3.919 3.569-.002 0-.646 3.113-1.074 5.19-.036.188.032.387.196.506.163.119.373.121.538.028 1.844-1.048 4.606-2.624 4.606-2.624l4.604 2.625c.168.092.378.09.541-.029.164-.119.232-.318.195-.505l-1.071-5.191 3.919-3.566c.14-.131.202-.332.14-.524s-.23-.319-.42-.341c-2.108-.236-5.269-.586-5.269-.586l-2.183-4.83c-.082-.173-.254-.294-.456-.294s-.375.122-.453.294l-2.183 4.83z" />
-              </svg>
-              <p id="rating">9.3</p>
-            </div>
-            <div className="contentStatus">
-              <svg
-                width="24px"
-                height="24px"
-                viewBox="4 5 15 15"
-                fill="#da7500"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M12 9.5C13.3807 9.5 14.5 10.6193 14.5 12C14.5 13.3807 13.3807 14.5 12 14.5C10.6193 14.5 9.5 13.3807 9.5 12C9.5 10.6193 10.6193 9.5 12 9.5Z" />
-              </svg>
-              <p>Hiatus</p>
-            </div>
-            <p className="contentDescription">Cat stories coming soon.</p>
-          </div>
-          <div className="contentDisplayCard">
-            <img src="cat.png" />
-            <span className="contentName">Cat4</span>
-            <div className="contentStats">
-              <svg
-                fill="#eab308"
-                width="20px"
-                height="20px"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M9.362 9.158l-5.268.584c-.19.023-.358.15-.421.343s0 .394.14.521c1.566 1.429 3.919 3.569 3.919 3.569-.002 0-.646 3.113-1.074 5.19-.036.188.032.387.196.506.163.119.373.121.538.028 1.844-1.048 4.606-2.624 4.606-2.624l4.604 2.625c.168.092.378.09.541-.029.164-.119.232-.318.195-.505l-1.071-5.191 3.919-3.566c.14-.131.202-.332.14-.524s-.23-.319-.42-.341c-2.108-.236-5.269-.586-5.269-.586l-2.183-4.83c-.082-.173-.254-.294-.456-.294s-.375.122-.453.294l-2.183 4.83z" />
-              </svg>
-              <p id="rating">3.2</p>
-            </div>
-            <div className="contentStatus">
-              <svg
-                width="24px"
-                height="24px"
-                viewBox="4 5 15 15"
-                fill="darkgray"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M12 9.5C13.3807 9.5 14.5 10.6193 14.5 12C14.5 13.3807 13.3807 14.5 12 14.5C10.6193 14.5 9.5 13.3807 9.5 12C9.5 10.6193 10.6193 9.5 12 9.5Z" />
-              </svg>
-              <p>Cancelled</p>
-            </div>
-            <p className="contentDescription">Cat gone forever...</p>
-          </div>
-          <div className="contentDisplayCard">
-            <img src="cat.png" />
-            <span className="contentName">Cat5</span>
-            <div className="contentStats">
-              <svg
-                fill="#eab308"
-                width="20px"
-                height="20px"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M9.362 9.158l-5.268.584c-.19.023-.358.15-.421.343s0 .394.14.521c1.566 1.429 3.919 3.569 3.919 3.569-.002 0-.646 3.113-1.074 5.19-.036.188.032.387.196.506.163.119.373.121.538.028 1.844-1.048 4.606-2.624 4.606-2.624l4.604 2.625c.168.092.378.09.541-.029.164-.119.232-.318.195-.505l-1.071-5.191 3.919-3.566c.14-.131.202-.332.14-.524s-.23-.319-.42-.341c-2.108-.236-5.269-.586-5.269-.586l-2.183-4.83c-.082-.173-.254-.294-.456-.294s-.375.122-.453.294l-2.183 4.83z" />
-              </svg>
-              <p id="rating">6.0</p>
-            </div>
-            <div className="contentStatus">
-              <svg
-                width="24px"
-                height="24px"
-                viewBox="4 5 15 15"
-                fill="lime"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M12 9.5C13.3807 9.5 14.5 10.6193 14.5 12C14.5 13.3807 13.3807 14.5 12 14.5C10.6193 14.5 9.5 13.3807 9.5 12C9.5 10.6193 10.6193 9.5 12 9.5Z" />
-              </svg>
-              <p>Ongoing</p>
-            </div>
-            <p className="contentDescription">
-              Really long
-              descriptionnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn!
-            </p>
-          </div>
-          <div className="contentDisplayCard">
-            <img src="cat.png" />
-            <span className="contentName">Cat6</span>
-            <div className="contentStats">
-              <svg
-                fill="#eab308"
-                width="20px"
-                height="20px"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M9.362 9.158l-5.268.584c-.19.023-.358.15-.421.343s0 .394.14.521c1.566 1.429 3.919 3.569 3.919 3.569-.002 0-.646 3.113-1.074 5.19-.036.188.032.387.196.506.163.119.373.121.538.028 1.844-1.048 4.606-2.624 4.606-2.624l4.604 2.625c.168.092.378.09.541-.029.164-.119.232-.318.195-.505l-1.071-5.191 3.919-3.566c.14-.131.202-.332.14-.524s-.23-.319-.42-.341c-2.108-.236-5.269-.586-5.269-.586l-2.183-4.83c-.082-.173-.254-.294-.456-.294s-.375.122-.453.294l-2.183 4.83z" />
-              </svg>
-              <p id="rating">3.8</p>
-            </div>
-            <div className="contentStatus">
-              <svg
-                width="24px"
-                height="24px"
-                viewBox="4 5 15 15"
-                fill="lime"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M12 9.5C13.3807 9.5 14.5 10.6193 14.5 12C14.5 13.3807 13.3807 14.5 12 14.5C10.6193 14.5 9.5 13.3807 9.5 12C9.5 10.6193 10.6193 9.5 12 9.5Z" />
-              </svg>
-              <p>Ongoing</p>
-            </div>
-            <p className="contentDescription">Funny cat hehe</p>
-          </div>
-          <div className="contentDisplayCard">
-            <img src="cat.png" />
-            <span className="contentName">Cat7</span>
-            <div className="contentStats">
-              <svg
-                fill="#eab308"
-                width="20px"
-                height="20px"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M9.362 9.158l-5.268.584c-.19.023-.358.15-.421.343s0 .394.14.521c1.566 1.429 3.919 3.569 3.919 3.569-.002 0-.646 3.113-1.074 5.19-.036.188.032.387.196.506.163.119.373.121.538.028 1.844-1.048 4.606-2.624 4.606-2.624l4.604 2.625c.168.092.378.09.541-.029.164-.119.232-.318.195-.505l-1.071-5.191 3.919-3.566c.14-.131.202-.332.14-.524s-.23-.319-.42-.341c-2.108-.236-5.269-.586-5.269-.586l-2.183-4.83c-.082-.173-.254-.294-.456-.294s-.375.122-.453.294l-2.183 4.83z" />
-              </svg>
-              <p id="rating">5.7</p>
-            </div>
-            <div className="contentStatus">
-              <svg
-                width="24px"
-                height="24px"
-                viewBox="4 5 15 15"
-                fill="lime"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M12 9.5C13.3807 9.5 14.5 10.6193 14.5 12C14.5 13.3807 13.3807 14.5 12 14.5C10.6193 14.5 9.5 13.3807 9.5 12C9.5 10.6193 10.6193 9.5 12 9.5Z" />
-              </svg>
-              <p>Ongoing</p>
-            </div>
-            <p className="contentDescription">Funny cat hehe</p>
-          </div>
-          <div className="contentDisplayCard">
-            <img src="cat.png" />
-            <span className="contentName">Cat8</span>
-            <div className="contentStats">
-              <svg
-                fill="#eab308"
-                width="20px"
-                height="20px"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M9.362 9.158l-5.268.584c-.19.023-.358.15-.421.343s0 .394.14.521c1.566 1.429 3.919 3.569 3.919 3.569-.002 0-.646 3.113-1.074 5.19-.036.188.032.387.196.506.163.119.373.121.538.028 1.844-1.048 4.606-2.624 4.606-2.624l4.604 2.625c.168.092.378.09.541-.029.164-.119.232-.318.195-.505l-1.071-5.191 3.919-3.566c.14-.131.202-.332.14-.524s-.23-.319-.42-.341c-2.108-.236-5.269-.586-5.269-.586l-2.183-4.83c-.082-.173-.254-.294-.456-.294s-.375.122-.453.294l-2.183 4.83z" />
-              </svg>
-              <p id="rating">0</p>
-            </div>
-            <div className="contentStatus">
-              <svg
-                width="24px"
-                height="24px"
-                viewBox="4 5 15 15"
-                fill="lime"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M12 9.5C13.3807 9.5 14.5 10.6193 14.5 12C14.5 13.3807 13.3807 14.5 12 14.5C10.6193 14.5 9.5 13.3807 9.5 12C9.5 10.6193 10.6193 9.5 12 9.5Z" />
-              </svg>
-              <p>Ongoing</p>
-            </div>
-            <p className="contentDescription">Funny cat hehe</p>
-          </div>
-        </div>
-        <div style={{ display: "flex", justifyContent: "center" }}>
-          <div className="navigationButtonWrapper">
-            <button
-              className="navigationButton"
+              className="formatButton"
+              id="denseFormatButton"
               style={{ borderTopLeftRadius: 5, borderBottomLeftRadius: 5 }}
             >
-              {" "}
               <svg
                 width="24px"
                 height="24px"
-                viewBox="0 0 20 20"
+                viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <path
-                  d="M17 9H5.414l3.293-3.293a.999.999 0 10-1.414-1.414l-5 5a.999.999 0 000 1.414l5 5a.997.997 0 001.414 0 .999.999 0 000-1.414L5.414 11H17a1 1 0 100-2z"
-                  fill="white"
+                <line
+                  x1={4}
+                  y1={19}
+                  x2={20}
+                  y2={19}
+                  stroke="white"
+                  strokeWidth={2}
+                  strokeLinecap="round"
+                />
+                <line
+                  x1={4}
+                  y1={12}
+                  x2={20}
+                  y2={12}
+                  stroke="white"
+                  strokeWidth={2}
+                  strokeLinecap="round"
+                />
+                <line
+                  x1={4}
+                  y1={5}
+                  x2={20}
+                  y2={5}
+                  stroke="white"
+                  strokeWidth={2}
+                  strokeLinecap="round"
                 />
               </svg>
             </button>
+            <button className="formatButton active" id="defaultFormatButton">
+              {" "}
+              <svg
+                fill="white"
+                width="24px"
+                height="24px"
+                viewBox="0 0 56 56"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M 8.0663 26.0664 L 47.9334 26.0664 C 51.5195 26.0664 53.3243 24.3086 53.3243 20.6992 L 53.3243 11.7461 C 53.3243 8.1602 51.5195 6.4258 47.9334 6.4258 L 8.0663 6.4258 C 4.4804 6.4258 2.6757 8.1602 2.6757 11.7461 L 2.6757 20.6992 C 2.6757 24.3086 4.4804 26.0664 8.0663 26.0664 Z M 8.3476 22.5274 C 6.9648 22.5274 6.2148 21.8008 6.2148 20.3477 L 6.2148 12.1445 C 6.2148 10.6680 6.9648 9.9649 8.3476 9.9649 L 47.6521 9.9649 C 49.0350 9.9649 49.7852 10.6680 49.7852 12.1445 L 49.7852 20.3477 C 49.7852 21.8008 49.0350 22.5274 47.6521 22.5274 Z M 8.0663 49.5742 L 47.9334 49.5742 C 51.5195 49.5742 53.3243 47.8399 53.3243 44.2305 L 53.3243 35.2539 C 53.3243 31.6914 51.5195 29.9336 47.9334 29.9336 L 8.0663 29.9336 C 4.4804 29.9336 2.6757 31.6914 2.6757 35.2539 L 2.6757 44.2305 C 2.6757 47.8399 4.4804 49.5742 8.0663 49.5742 Z M 8.3476 46.0352 C 6.9648 46.0352 6.2148 45.3086 6.2148 43.8555 L 6.2148 35.6523 C 6.2148 34.1758 6.9648 33.4727 8.3476 33.4727 L 47.6521 33.4727 C 49.0350 33.4727 49.7852 34.1758 49.7852 35.6523 L 49.7852 43.8555 C 49.7852 45.3086 49.0350 46.0352 47.6521 46.0352 Z" />
+              </svg>
+            </button>
             <button
-              className="navigationButton"
+              className="formatButton"
+              id="compactFormatButton"
               style={{ borderTopRightRadius: 5, borderBottomRightRadius: 5 }}
             >
               {" "}
               <svg
+                fill="white"
                 width="24px"
                 height="24px"
-                viewBox="0 0 20 20"
+                viewBox="0 0 56 56"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <path
-                  d="M17.707 9.293l-5-5a.999.999 0 10-1.414 1.414L14.586 9H3a1 1 0 100 2h11.586l-3.293 3.293a.999.999 0 101.414 1.414l5-5a.999.999 0 000-1.414z"
-                  fill="white"
-                />
+                <path d="M 6.4140 26.0664 L 21.5781 26.0664 C 24.5547 26.0664 26.0547 24.5664 26.0547 21.4727 L 26.0547 10.9961 C 26.0547 7.9023 24.5547 6.4258 21.5781 6.4258 L 6.4140 6.4258 C 3.4375 6.4258 1.9375 7.9023 1.9375 10.9961 L 1.9375 21.4727 C 1.9375 24.5664 3.4375 26.0664 6.4140 26.0664 Z M 34.4219 26.0664 L 49.5860 26.0664 C 52.5625 26.0664 54.0625 24.5664 54.0625 21.4727 L 54.0625 10.9961 C 54.0625 7.9023 52.5625 6.4258 49.5860 6.4258 L 34.4219 6.4258 C 31.4453 6.4258 29.9453 7.9023 29.9453 10.9961 L 29.9453 21.4727 C 29.9453 24.5664 31.4453 26.0664 34.4219 26.0664 Z M 6.4609 22.7617 C 5.6406 22.7617 5.2421 22.3398 5.2421 21.4727 L 5.2421 10.9961 C 5.2421 10.1523 5.6406 9.7305 6.4609 9.7305 L 21.5312 9.7305 C 22.3281 9.7305 22.7500 10.1523 22.7500 10.9961 L 22.7500 21.4727 C 22.7500 22.3398 22.3281 22.7617 21.5312 22.7617 Z M 34.4921 22.7617 C 33.6484 22.7617 33.2500 22.3398 33.2500 21.4727 L 33.2500 10.9961 C 33.2500 10.1523 33.6484 9.7305 34.4921 9.7305 L 49.5625 9.7305 C 50.3593 9.7305 50.7577 10.1523 50.7577 10.9961 L 50.7577 21.4727 C 50.7577 22.3398 50.3593 22.7617 49.5625 22.7617 Z M 6.4140 49.5742 L 21.5781 49.5742 C 24.5547 49.5742 26.0547 48.0977 26.0547 45.0039 L 26.0547 34.5039 C 26.0547 31.4336 24.5547 29.9336 21.5781 29.9336 L 6.4140 29.9336 C 3.4375 29.9336 1.9375 31.4336 1.9375 34.5039 L 1.9375 45.0039 C 1.9375 48.0977 3.4375 49.5742 6.4140 49.5742 Z M 34.4219 49.5742 L 49.5860 49.5742 C 52.5625 49.5742 54.0625 48.0977 54.0625 45.0039 L 54.0625 34.5039 C 54.0625 31.4336 52.5625 29.9336 49.5860 29.9336 L 34.4219 29.9336 C 31.4453 29.9336 29.9453 31.4336 29.9453 34.5039 L 29.9453 45.0039 C 29.9453 48.0977 31.4453 49.5742 34.4219 49.5742 Z M 6.4609 46.2695 C 5.6406 46.2695 5.2421 45.8477 5.2421 45.0039 L 5.2421 34.5274 C 5.2421 33.6602 5.6406 33.2383 6.4609 33.2383 L 21.5312 33.2383 C 22.3281 33.2383 22.7500 33.6602 22.7500 34.5274 L 22.7500 45.0039 C 22.7500 45.8477 22.3281 46.2695 21.5312 46.2695 Z M 34.4921 46.2695 C 33.6484 46.2695 33.2500 45.8477 33.2500 45.0039 L 33.2500 34.5274 C 33.2500 33.6602 33.6484 33.2383 34.4921 33.2383 L 49.5625 33.2383 C 50.3593 33.2383 50.7577 33.6602 50.7577 34.5274 L 50.7577 45.0039 C 50.7577 45.8477 50.3593 46.2695 49.5625 46.2695 Z" />
               </svg>
             </button>
+            <div
+              style={{
+                display: "flex",
+                marginLeft: "auto",
+                gap: 2,
+                paddingLeft: 2,
+                alignItems: "center"
+              }}
+            >
+              <button className="searchButton" style={{ height: "90%" }}>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: 5
+                  }}
+                >
+                  <svg
+                    width={15}
+                    height={15}
+                    viewBox="0 0 200 200"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <circle
+                      cx={80}
+                      cy={80}
+                      r={50}
+                      stroke="white"
+                      strokeWidth={20}
+                      fill="none"
+                    />
+                    <line
+                      x1={115}
+                      y1={115}
+                      x2={180}
+                      y2={180}
+                      stroke="white"
+                      strokeWidth={20}
+                      strokeLinecap="round"
+                    />
+                  </svg>
+                  <span>Search</span>
+                </div>
+              </button>
+              <button
+                className="resetFiltersButton disabled"
+                style={{ height: "90%" }}
+              >
+                Reset Filters
+              </button>
+            </div>
+          </div>
+          {/* Cards */}
+          <div className="contentGridWrapper" id="cardContainer">
+            {/* Normal Cards */}
+            <div className="contentDisplayCard">
+              <img src="cat.png" />
+              <span className="contentName">Cat</span>
+              <div className="contentStats">
+                <svg
+                  fill="#eab308"
+                  width="20px"
+                  height="20px"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M9.362 9.158l-5.268.584c-.19.023-.358.15-.421.343s0 .394.14.521c1.566 1.429 3.919 3.569 3.919 3.569-.002 0-.646 3.113-1.074 5.19-.036.188.032.387.196.506.163.119.373.121.538.028 1.844-1.048 4.606-2.624 4.606-2.624l4.604 2.625c.168.092.378.09.541-.029.164-.119.232-.318.195-.505l-1.071-5.191 3.919-3.566c.14-.131.202-.332.14-.524s-.23-.319-.42-.341c-2.108-.236-5.269-.586-5.269-.586l-2.183-4.83c-.082-.173-.254-.294-.456-.294s-.375.122-.453.294l-2.183 4.83z" />
+                </svg>
+                <p id="rating">7.2</p>
+              </div>
+              <div className="contentStatus">
+                <svg
+                  width="24px"
+                  height="24px"
+                  viewBox="4 5 15 15"
+                  fill="lime"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M12 9.5C13.3807 9.5 14.5 10.6193 14.5 12C14.5 13.3807 13.3807 14.5 12 14.5C10.6193 14.5 9.5 13.3807 9.5 12C9.5 10.6193 10.6193 9.5 12 9.5Z" />
+                </svg>
+                <p>Ongoing</p>
+              </div>
+              <div className="contentTags">
+                <div className="contentTag">
+                  <span>Comedy</span>
+                </div>
+                <div className="contentTag">
+                  <span>Horror</span>
+                </div>
+                <div className="contentTag">
+                  <span>Drama</span>
+                </div>
+                <div className="contentTag">
+                  <span>Mystery</span>
+                </div>
+                <div className="contentTag">
+                  <span>Novel</span>
+                </div>
+                <div className="contentTag">
+                  <span>English</span>
+                </div>
+              </div>
+              <p className="contentDescription">Funny cat hehe</p>
+            </div>
+            <div className="contentDisplayCard">
+              <img src="cat.png" />
+              <span className="contentName">
+                ReallyLongCattttttttttttttttttttttttttt
+              </span>
+              <div className="contentStats">
+                <svg
+                  fill="#eab308"
+                  width="20px"
+                  height="20px"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M9.362 9.158l-5.268.584c-.19.023-.358.15-.421.343s0 .394.14.521c1.566 1.429 3.919 3.569 3.919 3.569-.002 0-.646 3.113-1.074 5.19-.036.188.032.387.196.506.163.119.373.121.538.028 1.844-1.048 4.606-2.624 4.606-2.624l4.604 2.625c.168.092.378.09.541-.029.164-.119.232-.318.195-.505l-1.071-5.191 3.919-3.566c.14-.131.202-.332.14-.524s-.23-.319-.42-.341c-2.108-.236-5.269-.586-5.269-.586l-2.183-4.83c-.082-.173-.254-.294-.456-.294s-.375.122-.453.294l-2.183 4.83z" />
+                </svg>
+                <p id="rating">5.6</p>
+              </div>
+              <div className="contentStatus">
+                <svg
+                  width="24px"
+                  height="24px"
+                  viewBox="4 5 15 15"
+                  fill="#00c9f5"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M12 9.5C13.3807 9.5 14.5 10.6193 14.5 12C14.5 13.3807 13.3807 14.5 12 14.5C10.6193 14.5 9.5 13.3807 9.5 12C9.5 10.6193 10.6193 9.5 12 9.5Z" />
+                </svg>
+                <p>Completed</p>
+              </div>
+              <div className="contentTags">
+                <div className="contentTag">
+                  <span>Comedy</span>
+                </div>
+                <div className="contentTag">
+                  <span>Horror</span>
+                </div>
+              </div>
+              <p className="contentDescription">Cat stories done!</p>
+            </div>
+            <div className="contentDisplayCard">
+              <img src="cat.png" />
+              <span className="contentName">Cat3</span>
+              <div className="contentStats">
+                <svg
+                  fill="#eab308"
+                  width="20px"
+                  height="20px"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M9.362 9.158l-5.268.584c-.19.023-.358.15-.421.343s0 .394.14.521c1.566 1.429 3.919 3.569 3.919 3.569-.002 0-.646 3.113-1.074 5.19-.036.188.032.387.196.506.163.119.373.121.538.028 1.844-1.048 4.606-2.624 4.606-2.624l4.604 2.625c.168.092.378.09.541-.029.164-.119.232-.318.195-.505l-1.071-5.191 3.919-3.566c.14-.131.202-.332.14-.524s-.23-.319-.42-.341c-2.108-.236-5.269-.586-5.269-.586l-2.183-4.83c-.082-.173-.254-.294-.456-.294s-.375.122-.453.294l-2.183 4.83z" />
+                </svg>
+                <p id="rating">9.3</p>
+              </div>
+              <div className="contentStatus">
+                <svg
+                  width="24px"
+                  height="24px"
+                  viewBox="4 5 15 15"
+                  fill="#da7500"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M12 9.5C13.3807 9.5 14.5 10.6193 14.5 12C14.5 13.3807 13.3807 14.5 12 14.5C10.6193 14.5 9.5 13.3807 9.5 12C9.5 10.6193 10.6193 9.5 12 9.5Z" />
+                </svg>
+                <p>Hiatus</p>
+              </div>
+              <p className="contentDescription">Cat stories coming soon.</p>
+            </div>
+            <div className="contentDisplayCard">
+              <img src="cat.png" />
+              <span className="contentName">Cat4</span>
+              <div className="contentStats">
+                <svg
+                  fill="#eab308"
+                  width="20px"
+                  height="20px"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M9.362 9.158l-5.268.584c-.19.023-.358.15-.421.343s0 .394.14.521c1.566 1.429 3.919 3.569 3.919 3.569-.002 0-.646 3.113-1.074 5.19-.036.188.032.387.196.506.163.119.373.121.538.028 1.844-1.048 4.606-2.624 4.606-2.624l4.604 2.625c.168.092.378.09.541-.029.164-.119.232-.318.195-.505l-1.071-5.191 3.919-3.566c.14-.131.202-.332.14-.524s-.23-.319-.42-.341c-2.108-.236-5.269-.586-5.269-.586l-2.183-4.83c-.082-.173-.254-.294-.456-.294s-.375.122-.453.294l-2.183 4.83z" />
+                </svg>
+                <p id="rating">3.2</p>
+              </div>
+              <div className="contentStatus">
+                <svg
+                  width="24px"
+                  height="24px"
+                  viewBox="4 5 15 15"
+                  fill="darkgray"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M12 9.5C13.3807 9.5 14.5 10.6193 14.5 12C14.5 13.3807 13.3807 14.5 12 14.5C10.6193 14.5 9.5 13.3807 9.5 12C9.5 10.6193 10.6193 9.5 12 9.5Z" />
+                </svg>
+                <p>Cancelled</p>
+              </div>
+              <p className="contentDescription">Cat gone forever...</p>
+            </div>
+            <div className="contentDisplayCard">
+              <img src="cat.png" />
+              <span className="contentName">Cat5</span>
+              <div className="contentStats">
+                <svg
+                  fill="#eab308"
+                  width="20px"
+                  height="20px"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M9.362 9.158l-5.268.584c-.19.023-.358.15-.421.343s0 .394.14.521c1.566 1.429 3.919 3.569 3.919 3.569-.002 0-.646 3.113-1.074 5.19-.036.188.032.387.196.506.163.119.373.121.538.028 1.844-1.048 4.606-2.624 4.606-2.624l4.604 2.625c.168.092.378.09.541-.029.164-.119.232-.318.195-.505l-1.071-5.191 3.919-3.566c.14-.131.202-.332.14-.524s-.23-.319-.42-.341c-2.108-.236-5.269-.586-5.269-.586l-2.183-4.83c-.082-.173-.254-.294-.456-.294s-.375.122-.453.294l-2.183 4.83z" />
+                </svg>
+                <p id="rating">6.0</p>
+              </div>
+              <div className="contentStatus">
+                <svg
+                  width="24px"
+                  height="24px"
+                  viewBox="4 5 15 15"
+                  fill="lime"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M12 9.5C13.3807 9.5 14.5 10.6193 14.5 12C14.5 13.3807 13.3807 14.5 12 14.5C10.6193 14.5 9.5 13.3807 9.5 12C9.5 10.6193 10.6193 9.5 12 9.5Z" />
+                </svg>
+                <p>Ongoing</p>
+              </div>
+              <p className="contentDescription">
+                Really long
+                descriptionnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn!
+              </p>
+            </div>
+            <div className="contentDisplayCard">
+              <img src="cat.png" />
+              <span className="contentName">Cat6</span>
+              <div className="contentStats">
+                <svg
+                  fill="#eab308"
+                  width="20px"
+                  height="20px"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M9.362 9.158l-5.268.584c-.19.023-.358.15-.421.343s0 .394.14.521c1.566 1.429 3.919 3.569 3.919 3.569-.002 0-.646 3.113-1.074 5.19-.036.188.032.387.196.506.163.119.373.121.538.028 1.844-1.048 4.606-2.624 4.606-2.624l4.604 2.625c.168.092.378.09.541-.029.164-.119.232-.318.195-.505l-1.071-5.191 3.919-3.566c.14-.131.202-.332.14-.524s-.23-.319-.42-.341c-2.108-.236-5.269-.586-5.269-.586l-2.183-4.83c-.082-.173-.254-.294-.456-.294s-.375.122-.453.294l-2.183 4.83z" />
+                </svg>
+                <p id="rating">3.8</p>
+              </div>
+              <div className="contentStatus">
+                <svg
+                  width="24px"
+                  height="24px"
+                  viewBox="4 5 15 15"
+                  fill="lime"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M12 9.5C13.3807 9.5 14.5 10.6193 14.5 12C14.5 13.3807 13.3807 14.5 12 14.5C10.6193 14.5 9.5 13.3807 9.5 12C9.5 10.6193 10.6193 9.5 12 9.5Z" />
+                </svg>
+                <p>Ongoing</p>
+              </div>
+              <p className="contentDescription">Funny cat hehe</p>
+            </div>
+            <div className="contentDisplayCard">
+              <img src="cat.png" />
+              <span className="contentName">Cat7</span>
+              <div className="contentStats">
+                <svg
+                  fill="#eab308"
+                  width="20px"
+                  height="20px"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M9.362 9.158l-5.268.584c-.19.023-.358.15-.421.343s0 .394.14.521c1.566 1.429 3.919 3.569 3.919 3.569-.002 0-.646 3.113-1.074 5.19-.036.188.032.387.196.506.163.119.373.121.538.028 1.844-1.048 4.606-2.624 4.606-2.624l4.604 2.625c.168.092.378.09.541-.029.164-.119.232-.318.195-.505l-1.071-5.191 3.919-3.566c.14-.131.202-.332.14-.524s-.23-.319-.42-.341c-2.108-.236-5.269-.586-5.269-.586l-2.183-4.83c-.082-.173-.254-.294-.456-.294s-.375.122-.453.294l-2.183 4.83z" />
+                </svg>
+                <p id="rating">5.7</p>
+              </div>
+              <div className="contentStatus">
+                <svg
+                  width="24px"
+                  height="24px"
+                  viewBox="4 5 15 15"
+                  fill="lime"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M12 9.5C13.3807 9.5 14.5 10.6193 14.5 12C14.5 13.3807 13.3807 14.5 12 14.5C10.6193 14.5 9.5 13.3807 9.5 12C9.5 10.6193 10.6193 9.5 12 9.5Z" />
+                </svg>
+                <p>Ongoing</p>
+              </div>
+              <p className="contentDescription">Funny cat hehe</p>
+            </div>
+            <div className="contentDisplayCard">
+              <img src="cat.png" />
+              <span className="contentName">Cat8</span>
+              <div className="contentStats">
+                <svg
+                  fill="#eab308"
+                  width="20px"
+                  height="20px"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M9.362 9.158l-5.268.584c-.19.023-.358.15-.421.343s0 .394.14.521c1.566 1.429 3.919 3.569 3.919 3.569-.002 0-.646 3.113-1.074 5.19-.036.188.032.387.196.506.163.119.373.121.538.028 1.844-1.048 4.606-2.624 4.606-2.624l4.604 2.625c.168.092.378.09.541-.029.164-.119.232-.318.195-.505l-1.071-5.191 3.919-3.566c.14-.131.202-.332.14-.524s-.23-.319-.42-.341c-2.108-.236-5.269-.586-5.269-.586l-2.183-4.83c-.082-.173-.254-.294-.456-.294s-.375.122-.453.294l-2.183 4.83z" />
+                </svg>
+                <p id="rating">0</p>
+              </div>
+              <div className="contentStatus">
+                <svg
+                  width="24px"
+                  height="24px"
+                  viewBox="4 5 15 15"
+                  fill="lime"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M12 9.5C13.3807 9.5 14.5 10.6193 14.5 12C14.5 13.3807 13.3807 14.5 12 14.5C10.6193 14.5 9.5 13.3807 9.5 12C9.5 10.6193 10.6193 9.5 12 9.5Z" />
+                </svg>
+                <p>Ongoing</p>
+              </div>
+              <p className="contentDescription">Funny cat hehe</p>
+            </div>
+          </div>
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <div className="navigationButtonWrapper">
+              <button
+                className="navigationButton"
+                style={{ borderTopLeftRadius: 5, borderBottomLeftRadius: 5 }}
+              >
+                {" "}
+                <svg
+                  width="24px"
+                  height="24px"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M17 9H5.414l3.293-3.293a.999.999 0 10-1.414-1.414l-5 5a.999.999 0 000 1.414l5 5a.997.997 0 001.414 0 .999.999 0 000-1.414L5.414 11H17a1 1 0 100-2z"
+                    fill="white"
+                  />
+                </svg>
+              </button>
+              <button
+                className="navigationButton"
+                style={{ borderTopRightRadius: 5, borderBottomRightRadius: 5 }}
+              >
+                {" "}
+                <svg
+                  width="24px"
+                  height="24px"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M17.707 9.293l-5-5a.999.999 0 10-1.414 1.414L14.586 9H3a1 1 0 100 2h11.586l-3.293 3.293a.999.999 0 101.414 1.414l5-5a.999.999 0 000-1.414z"
+                    fill="white"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div className="accountElementSideBar">
+          <div className="accountInformation">
+            <img id="accountProfilePicture" src="cat.png" />
+            <p style={{ color: "white" }}>Guest</p>
+          </div>
+          <div className="accountNavigation">
+            <a href="" id="signInButton" className="navigationButton">
+              Sign in
+            </a>
+            <a href="" id="registerButton" className="darkNavigationButton">
+              Register
+            </a>
+          </div>
+        </div>
+        <div className="accountElementSignedIn">
+          <div className="accountInformation">
+            <img id="accountProfilePicture" src="cat.png" />
+            <p style={{ color: "white" }}>Username</p>
+          </div>
+          <div className="accountNavigation">
+            <a href="" className="navigationButton">
+              Profile
+            </a>
+            <a href="" className="darkNavigationButton">
+              Followed
+            </a>
+            <a href="" className="darkNavigationButton">
+              My Lists
+            </a>
+            <div
+              style={{
+                borderBottom: "solid white",
+                height: 10,
+                marginBottom: "-5p3"
+              }}
+            ></div>
+            <a href="" className="darkNavigationButton">
+              Sign Out
+            </a>
           </div>
         </div>
       </div>
-      <div className="accountElementSideBar">
-        <div className="accountInformation">
-          <img id="accountProfilePicture" src="cat.png" />
-          <p style={{ color: "white" }}>Guest</p>
-        </div>
-        <div className="accountNavigation">
-          <a href="" id="signInButton" className="navigationButton">
-            Sign in
-          </a>
-          <a href="" id="registerButton" className="darkNavigationButton">
-            Register
-          </a>
-        </div>
-      </div>
-      <div className="accountElementSignedIn">
-        <div className="accountInformation">
-          <img id="accountProfilePicture" src="cat.png" />
-          <p style={{ color: "white" }}>Username</p>
-        </div>
-        <div className="accountNavigation">
-          <a href="" className="navigationButton">
-            Profile
-          </a>
-          <a href="" className="darkNavigationButton">
-            Followed
-          </a>
-          <a href="" className="darkNavigationButton">
-            My Lists
-          </a>
-          <div
-            style={{
-              borderBottom: "solid white",
-              height: 10,
-              marginBottom: "-5p3"
-            }}
-          ></div>
-          <a href="" className="darkNavigationButton">
-            Sign Out
-          </a>
-        </div>
-      </div>
     </div>
+      
     </>
   )
 }
