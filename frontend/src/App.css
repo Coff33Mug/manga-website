@@ -1,0 +1,878 @@
+html * {
+  font-family: Verdana !important;
+}
+
+body {
+  background-color: #21282e;
+  background-color: rgb(60, 92, 120);
+  background-color: rgb(40, 60, 80);
+  margin: 25px;
+  padding: 0;
+  overflow: overlay;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  width: 10px;
+  background-color: rgb(77, 77, 77);
+  border-radius: 10px;
+}
+
+button {
+  cursor: pointer;
+}
+
+.generalSpace {
+  height: 10px;
+}
+
+.mainGridWrapper {
+  display: grid;
+  margin: 0 auto;
+  /* Position relative is for tag filter container */
+  position: relative;
+  gap: 10px;
+  justify-content: center;
+  /* background-color: #191a1c; */
+  width: 100%;
+  grid-template-columns: repeat(5, 1fr) 75px 75px;
+  grid-template-rows:  auto;
+}
+
+.contentGridWrapper {
+  display: grid;
+  margin-top: 10px;
+  gap: 10px;
+  justify-content: center;
+  /* background-color: rgb(154, 154, 154); */
+  width: 100%;
+  grid-template-columns: repeat(2, 49%);
+  grid-template-rows: auto;
+}
+
+.contentGridWrapper.dense {
+  grid-template-columns: 100%;
+  grid-template-rows: auto;
+}
+
+.contentGridWrapper.compact {
+  grid-template-columns: repeat(6, 15%);
+  gap: 15px;
+}
+
+.contentDisplayCard {
+  background-color: #191a1c;
+  display: grid;
+  white-space: wrap;
+  box-sizing: border-box;
+  padding: 5px;
+  border-radius: 5px;
+  grid-template-areas: 
+  "img title title"
+  "img stats status"
+  "img tags tags"
+  "img description description";
+  grid-template-columns: min(215px, 35%) 1fr auto;
+  grid-template-rows: auto auto auto 1fr;
+}
+
+.contentDisplayCard.dense {
+  grid-template-areas:        
+  "img title stats status"
+  "img tags tags tags"
+  "img description description description";
+  grid-template-columns: 100px auto 1fr auto auto;
+  grid-template-rows: auto auto 1fr;
+  min-height: unset;
+}
+
+.contentDisplayCard.compact {
+  /* grid-template-areas:        
+  "img img img"
+  "img img img"
+  "title title stats"; */
+  display: block;
+  position: relative;
+  height: unset;
+  padding: 0;
+  background-color: transparent;
+}
+
+.contentDisplayCard.compact .contentDescription,
+.contentDisplayCard.compact .contentStatus, 
+.contentDisplayCard.compact .contentTags {
+  display: none;
+}
+
+.contentDisplayCard.compact .contentName {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 80%;
+  padding: 8px;
+  text-wrap: wrap;
+  white-space: normal;
+  overflow-wrap: break-word;
+  font-size: calc(.8vw + .8vh);
+}
+
+.contentDisplayCard.compact .contentStats {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.contentName {
+  color: white;
+  /* Centering text */
+  margin-top: auto;
+  margin-bottom: auto;
+
+  grid-area: title;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  margin-left: 5px;
+  font-size: 1.125rem;
+}
+
+.contentStats {
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  grid-area: stats;
+  word-break: break-all;
+  white-space: nowrap;
+  margin-left: 5px;
+  font-size: .8125rem;
+  height: 30px;
+}
+
+.contentStatus {
+  background-color: rgb(85, 85, 85);
+  padding: 1px 10px 1px 0px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  height: 24px;
+  color: white;
+  font-size: .69rem;
+}
+
+.contentDescription {
+  grid-area: description;
+  color: white;
+  position: relative;
+  font-size: .70rem;
+  word-break: break-all;
+  white-space: normal;
+  overflow: hidden;
+  margin: 0;
+  margin-left: 5px;
+  padding: 0;
+  max-height: 7em;
+}
+
+.contentDescription::after {
+  background: linear-gradient(rgba(255, 255, 255, 0), rgb(25, 26, 28));
+  /* background-color: white; */
+  bottom: 0;
+  content: "";
+  display: block;
+  height: .9em;
+  left: 0;
+  position: absolute;
+  width: 100%
+}
+
+.contentDisplayCard img {
+  left: 5px;
+  top: 5px;
+  border-radius: 10px;
+  grid-area: img;
+  width: 100%;
+  max-height: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.contentTags {
+  grid-area: tags;
+  position: relative;
+  display: flex; 
+  flex-wrap: wrap;
+  gap: 5px; 
+  margin-left: 5px; 
+  margin-bottom: 2px; 
+  padding-right: 2.5rem;
+  overflow: hidden; 
+  max-height: 1em;
+}
+
+/* May not be needed? Only the after element is wanted here. */
+/* .contentTags.overflow-y-hidden {
+  
+} */
+
+.contentTags.overflow-y-hidden::after {
+  position: absolute;
+  right: .3rem;
+  top: -2px;
+  content: 'More';
+  color: #71a7d3;
+  font-size: .70rem;
+  font-weight: 550;
+  width: fit-content;
+  border-radius: 10px;
+  cursor: pointer;
+  
+}
+
+.contentTag {
+  color: white;
+  font-size: .55rem;
+  font-weight: 550;
+  background-color: #292a2c;
+  width: fit-content;
+  padding: 0 .375rem;
+  border-radius: .15rem;
+  align-self: flex-start;
+}
+
+.popularElement {
+  background-color: black;
+  overflow: hidden;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  grid-column-start: 1;
+  grid-column-end: 8;
+}
+
+.contentElement {
+  width: 100%;
+  height: fit-content;
+  padding: 10px;
+  background-color: #262626;
+  grid-row-start: 1;
+  grid-row-end: 10;
+  grid-column-start: 1;
+  grid-column-end: 6;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.contentElement #filterButton {
+  color: white;
+  background-color: #71a7d3;
+  height: 30px;
+  width: 25%;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.contentElement #filterButton:hover{
+  background-color: #618db1;
+}
+
+.filterElement {
+  display: grid;
+  justify-content: space-evenly;
+  box-sizing: border-box;
+  margin: 10px 0 10px 0px;
+  padding-bottom: 2px;
+  grid-template-columns: repeat(3, 27%);
+  grid-template-rows: 50px;
+  grid-auto-rows: 50px;
+  transition: grid-template-rows .15s ease-in-out;
+  overflow: hidden;
+}
+
+.filterElement.hidden {
+  grid-template-rows: 0px; 
+  grid-auto-rows: 0px;
+}
+
+.filterElement label {
+  padding: -5px;
+  color: rgb(140, 140, 140);
+}
+
+.dropDownElement {
+  width: 100%;
+  height: 100%;
+}
+
+.tagFilterContainer {
+  position: absolute;
+  background-color: rgb(63, 63, 63);
+  height: 400px;
+  width: 600px;
+  top: 115px;
+  padding: 15px;
+  border: #757575 1px solid;
+  border-radius: 5px;
+  box-sizing: border-box;
+
+  animation: fadeIn .15s linear;
+  z-index: 2;
+  pointer-events: auto;
+  overflow-y: scroll;
+}
+
+.tagFilterContainer.hidden {
+  opacity: 0;
+  animation: fadeOut .15s linear;
+  pointer-events: none;
+}
+
+.tagFilterContainer.initialHidden {
+  opacity: 0;
+  pointer-events: none;
+  animation: none;
+}
+
+#closeTagFilterContainerButton {
+  width: 40px;
+  height: 40px;
+  margin-right: -8px;
+  background-color: transparent; 
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  display: none;
+}
+
+#closeTagFilterContainerButton:hover {
+  background-color: rgb(70, 70, 70);
+  border-radius: 50%;
+}
+
+#tagFilterContainerSearchAndResetButtons {
+  display: none;
+}
+
+.generalTagsContainer, .contentTagsContainer, .languageTagsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+
+.tagFilterContainer ul {
+  list-style-type: none;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+}
+
+.tagFilterContainer li {
+  transition-duration: .15s;
+  transition-property: opacity, color, border-color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+  padding: 5px;
+  border-radius: .375rem;
+  font-size: .75rem;
+  width: fit-content;
+  user-select: none;
+  box-sizing: border-box;
+}
+
+.tagFilterContainer li.neutral {
+  background-color: rgb(46, 46, 46);
+  border: solid 1px rgb(46, 46, 46);
+  color: white;
+}
+
+.tagFilterContainer li.include { 
+  color: rgb(4, 196, 23);
+  opacity: .9;
+  border: solid 1px #04d000;
+}
+
+.tagFilterContainer li.exclude { 
+  color: rgb(169, 0, 0);
+  background-color: rgb(119, 0, 0, .2);
+  border: dashed 1px#ff4040;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+#searchBar {
+  width: 75%;
+  height: auto;
+  background-color: black;
+  padding-left: 10px;
+  border: none;
+  border-radius: 5px;
+  color:white;
+}
+
+#searchBar::placeholder {
+  color: white;
+}
+
+#searchBar:focus {
+  transition: all 0.3s ease-in-out;
+  outline: none;
+  box-shadow: 0 0 0 .1rem rgba(0, 123, 255, 0.25);
+}
+
+.contentElement #accountProfileAvatar {
+  width: 37px;
+  max-height: 100%;
+  height: auto;
+  border-radius: 50%;
+}
+
+#accountProfilePictureButton {
+  background-color: transparent; 
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  display: none;
+}
+
+/* This animates the closing of it
+.filterElement {
+  grid-template-rows: 0px;
+} */
+
+.filterDropDown {
+  width: 100%;
+  background-color: rgb(106, 106, 106);
+}
+
+.selectElement {
+  border: none;
+  color: white;
+  background-color: rgb(63, 63, 63);
+  border-radius: 5px;
+  width: 100%;
+  height: 30px;
+  padding-left: 4px;
+  appearance: none;
+  cursor: pointer;
+
+  transition: all 0.3s ease-in-out;
+  outline: solid 1px transparent;
+}
+
+/* May not be used since interaction is weird. */
+.selectElement:focus, .tagsButton:focus {
+  outline-color: #71a7d3;
+}
+
+.tagsButton {
+  text-align: left;
+  border: none;
+  color: white;
+  background-color: rgb(63, 63, 63);
+  border-radius: 5px;
+  width: 100%;
+  height: 30px;
+  padding-left: 4px;
+  cursor: pointer;
+
+  transition: all 0.3s ease-in-out;
+  outline: solid 1px transparent;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.tagsButton.active {
+  outline-color: #71a7d3;
+}
+
+
+.searchButton {
+  text-align: center;
+  border: none;
+  color: white;
+  background-color: #71a7d3;
+  border-radius: 5px;
+  width: 100%;
+  height: 30px;
+  padding-left: 4px;
+  cursor: pointer;
+
+  transition: all 0.3s ease-in-out;
+  outline: solid 1px transparent;
+}
+
+.searchButton:hover {
+  background-color: #618db1;
+}
+
+.resetFiltersButton {
+  text-align: center;
+  border: none;
+  color: rgb(255, 64, 64);
+  background-color: rgb(255, 64, 64, .2);
+  --opacity: .2;
+  border-radius: 5px;
+  width: 100%;
+  height: 30px;
+  padding-left: 4px;
+  cursor: pointer;
+
+  transition: all 0.3s ease-in-out;
+  outline: solid 1px transparent;
+}
+
+.resetFiltersButton.disabled {
+  color: rgb(255, 64, 64, .2);
+  background-color: rgb(255, 64, 64, .1);
+}
+
+.selectElement option:hover {
+  background-color: rgb(85, 85, 85);
+}
+
+.contentElement .formatButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(63, 63, 63);
+  transition: all 0.2s ease-in-out;
+  width: fit-content;
+  height: 40px;
+  border: none;
+}
+
+.contentElement .formatButton.active {
+  background-color: rgb(85, 85, 85);
+}
+
+.contentElement .formatButton:hover {
+  background-color: rgb(85, 85, 85);
+}
+
+.navigationButtonWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+.navigationButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  transition: all .175s ease-out;
+  width: fit-content;
+  height: 40px;
+  background-color: #71a7d3;
+}
+
+.navigationButton:hover {
+  background-color: #618db1;
+}
+
+.darkNavigationButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  width: fit-content;
+  height: 40px;
+  background-color: transparent;
+  transition: all .175s ease-out;
+}
+
+.darkNavigationButton:hover {
+  background-color: rgb(74, 74, 74);
+}
+
+
+.accountElementSideBar {
+  background-color: rgb(79, 79, 79);
+  box-sizing: border-box;
+  padding: 10px;
+  border-radius: 5px;
+  /* This sizing is for when logged out */
+  /* grid-row-start: 3;
+  grid-row-end: 8;
+  grid-column-start: 6;
+  grid-column-end: 8; */
+
+  /* Thi sizing is for when logged in */
+  grid-row-start: 1;
+  grid-row-end: 4;
+  grid-column-start: 6;
+  grid-column-end: 8;
+}
+
+.accountElementDropDown {
+  display: grid;
+  justify-content: space-evenly;
+  box-sizing: border-box;
+  margin: 10px 0 10px 0;
+  grid-template-columns: repeat(3, 27%);
+  grid-template-rows: 50px;
+  transition: grid-template-rows .15s ease-in-out;
+  overflow: hidden;
+}
+
+.accountElementDropDown a {
+  border: none;
+  color: white;
+  border-radius: 5px;
+  width: 99%;
+  height: 30px;
+  padding-left: 4px;
+  text-decoration: none;
+  cursor: pointer;
+  outline: solid 1px transparent;
+}
+
+.accountElementDropDown.hidden {
+  grid-template-rows: 0px; 
+}
+
+.accountElementSignedIn {
+  background-color: rgb(79, 79, 79);
+  box-sizing: border-box;
+  padding: 10px;
+  border-radius: 5px;
+  /* Thi sizing is for when logged in */
+  grid-row-start: 4;
+  grid-row-end: 8;
+  grid-column-start: 6;
+  grid-column-end: 8;
+}
+
+.accountInformation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: white solid;
+  width: 100%;
+  gap: 10px;
+  padding-bottom: 10px;
+}
+
+.accountInformation p {
+  margin: 0;
+}
+
+#accountProfilePicture {
+  width: 70%;
+  border-radius: 50%;
+}
+
+.accountNavigation {
+ display: flex; 
+ flex-direction: column;
+}
+
+.accountNavigation a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  width: 100%;
+  height: 30px;
+  border-radius: 7px;
+  margin-top: 10px;
+  text-decoration: none;
+  color: white;
+  font-size: .875rem;
+}
+
+.popularItemContainer {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.popularItemContainer img {
+  height: 90%;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+/* orignally 1020px */
+@media (max-width: 1020px) {
+  .mainGridWrapper {
+      grid-template-columns: repeat(5, minmax(40px, 1fr));
+  }
+
+  .accountElementSideBar {
+      display: none;
+  }
+
+  .accountElementSignedIn {
+      display: none;
+  }
+
+  .contentElement {
+      grid-column-start: 1;
+      grid-column-end: 8;
+  }
+
+  /* Grid Wrapper for filtering buttons and selects */
+  .filterElement {
+      grid-template-columns: repeat(2, 45%);
+      grid-template-rows: repeat(2, 55px);;
+      row-gap: 15px;
+  }
+
+  .filterElement.hidden{
+      grid-template-rows: repeat(2, 0px);;
+      gap: 0px;
+      row-gap: 0px;
+  }
+
+  .accountElementDropDown {
+      grid-template-columns: repeat(2, 45%);
+      grid-template-rows: repeat(2, 30px);;
+      row-gap: 15px;
+  }
+
+  .tagFilterContainer {
+      top: 115px;
+      right: 5%;
+      height: 400px;
+      width: 360px;
+  }
+
+  .accountElementDropDown.hidden{
+      grid-template-rows: repeat(2, 0px);;
+      gap: 0px;
+      row-gap: 0px;
+  }
+
+  #accountProfileAvatar {
+      display: flex;
+  }
+
+  #accountProfilePictureButton {
+      display: flex;
+  }
+
+  .contentGridWrapper.compact {
+      grid-template-columns: repeat(5, 19%);
+      grid-template-rows: auto;
+      grid-auto-rows: auto;
+      gap: 6px;
+  }
+}
+
+@media (max-width: 800px) {
+  .contentGridWrapper.compact {
+      grid-template-columns: repeat(4, 24%);
+      grid-template-rows: auto;
+      grid-auto-rows: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .contentGridWrapper {
+      grid-template-columns: 100%;
+      grid-template-rows: 150px;
+      grid-auto-rows: 150px;
+  }
+
+  /* Two below prevent default styles to make 
+  certain rows too big. */
+  .contentGridWrapper.dense {
+      grid-template-rows: auto;
+      grid-auto-rows: auto;
+  }
+
+  .contentGridWrapper.compact {
+      grid-template-columns: repeat(3, 32%);
+      grid-template-rows: auto;
+      grid-auto-rows: auto;
+  }
+
+  .contentDisplayCard {
+      width: 100%;
+  }
+
+  .filterElement {
+      grid-template-columns: repeat(1, 99%);
+      grid-template-rows: repeat(3, 55px);;
+      row-gap: 15px;
+  }
+
+  .tagFilterContainer {
+      top: 185px;
+      left: 12px;
+  }
+
+  .filterElement.hidden{
+      grid-template-rows: repeat(3, 0px);
+  }
+
+  .accountElementDropDown {
+      grid-template-columns: repeat(1, 99%);
+      grid-template-rows: repeat(3, 30px);;
+      row-gap: 15px;
+  }
+
+  .accountElementDropDown.hidden{
+      grid-template-rows: repeat(3, 0px);
+  }
+
+  #accountProfilePictureButton {
+      display: flex;
+  }
+
+  .contentGridWrapper.dense .contentTags.overflow-y-hidden {
+      max-height: calc(1.65em + 0.25rem);
+  }
+
+  /* Force the format to be single */
+}
+
+@media (max-width: 465px) {
+  .contentGridWrapper.compact {
+      grid-template-columns: repeat(2, 49%);
+  }
+
+  .contentGridWrapper.dense .contentStatus {
+      display: none;
+  }
+
+  .mainGridWrapper {
+      position: static;
+  }
+
+  .tagFilterContainer {
+      width: 100%;
+      height: 100%;
+      margin: 0 auto;
+      border: none;
+      border-radius: 0px;
+      left: 0;
+      top: 0;
+  }
+
+  #closeTagFilterContainerButton {
+      display: inline;
+  }
+  
+  #tagFilterContainerSearchAndResetButtons {
+      display: inline;
+  }
+}
