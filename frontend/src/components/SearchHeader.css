@@ -1,0 +1,257 @@
+#searchBar {
+  width: 75%;
+  height: auto;
+  background-color: black;
+  padding-left: 10px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+}
+
+#searchBar::placeholder {
+  color: white;
+}
+
+#searchBar:focus {
+  transition: all 0.3s ease-in-out;
+  outline: none;
+  box-shadow: 0 0 0 .1rem rgba(0, 123, 255, 0.25);
+}
+
+#accountProfilePictureButton {
+  background-color: transparent;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  display: none;
+}
+
+#accountProfileAvatar {
+  width: 37px;
+  max-height: 100%;
+  height: auto;
+  border-radius: 50%;
+}
+
+.accountElementDropDown {
+  display: grid;
+  justify-content: space-evenly;
+  box-sizing: border-box;
+  margin: 10px 0;
+  grid-template-columns: repeat(3, 27%);
+  grid-template-rows: 50px;
+  transition: grid-template-rows .15s ease-in-out;
+  overflow: hidden;
+}
+
+.accountElementDropDown.hidden {
+  grid-template-rows: 0px;
+}
+
+.accountElementDropDown a {
+  border: none;
+  color: white;
+  border-radius: 5px;
+  width: 99%;
+  height: 30px;
+  padding-left: 4px;
+  text-decoration: none;
+  cursor: pointer;
+  outline: solid 1px transparent;
+}
+
+.filterElement {
+  display: grid;
+  justify-content: space-evenly;
+  box-sizing: border-box;
+  margin: 10px 0;
+  padding-bottom: 2px;
+  grid-template-columns: repeat(3, 27%);
+  grid-template-rows: 50px;
+  grid-auto-rows: 50px;
+  transition: grid-template-rows .15s ease-in-out;
+  overflow: hidden;
+}
+
+.filterElement.hidden {
+  grid-template-rows: 0px;
+  grid-auto-rows: 0px;
+}
+
+.filterElement label {
+  color: rgb(140, 140, 140);
+}
+
+.dropDownElement {
+  width: 100%;
+  height: 100%;
+}
+
+.selectElement {
+  border: none;
+  color: white;
+  background-color: rgb(63, 63, 63);
+  border-radius: 5px;
+  width: 100%;
+  height: 30px;
+  padding-left: 4px;
+  appearance: none;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  outline: solid 1px transparent;
+}
+
+.selectElement option:hover {
+  background-color: rgb(85, 85, 85);
+}
+
+.tagsButton {
+  text-align: left;
+  border: none;
+  color: white;
+  background-color: rgb(63, 63, 63);
+  border-radius: 5px;
+  width: 100%;
+  height: 30px;
+  padding-left: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  outline: solid 1px transparent;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.tagsButton.active {
+  outline-color: #71a7d3;
+}
+
+.tagFilterContainer {
+  position: absolute;
+  background-color: rgb(63, 63, 63);
+  height: 400px;
+  width: 600px;
+  top: 115px;
+  padding: 15px;
+  border: #757575 1px solid;
+  border-radius: 5px;
+  box-sizing: border-box;
+  animation: fadeIn .15s linear;
+  z-index: 2;
+  pointer-events: auto;
+  overflow-y: scroll;
+}
+
+.tagFilterContainer.hidden {
+  opacity: 0;
+  animation: fadeOut .15s linear;
+  pointer-events: none;
+}
+
+.tagFilterContainer.initialHidden {
+  opacity: 0;
+  pointer-events: none;
+  animation: none;
+}
+
+.generalTagsContainer,
+.contentTagsContainer,
+.languageTagsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+
+.tagFilterContainer ul {
+  list-style-type: none;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+}
+
+.tagFilterContainer li {
+  transition-duration: .15s;
+  transition-property: opacity, color, border-color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 5px;
+  border-radius: .375rem;
+  font-size: .75rem;
+  width: fit-content;
+  user-select: none;
+  box-sizing: border-box;
+}
+
+.tagFilterContainer li.neutral {
+  background-color: rgb(46, 46, 46);
+  border: solid 1px rgb(46, 46, 46);
+  color: white;
+}
+
+.tagFilterContainer li.include {
+  color: rgb(4, 196, 23);
+  opacity: .9;
+  border: solid 1px #04d000;
+}
+
+.tagFilterContainer li.exclude {
+  color: rgb(169, 0, 0);
+  background-color: rgba(119, 0, 0, .2);
+  border: dashed 1px #ff4040;
+}
+
+#closeTagFilterContainerButton {
+  width: 40px;
+  height: 40px;
+  margin-right: -8px;
+  background-color: transparent;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  display: none;
+}
+
+#closeTagFilterContainerButton:hover {
+  background-color: rgb(70, 70, 70);
+  border-radius: 50%;
+}
+
+#tagFilterContainerSearchAndResetButtons {
+  display: none;
+}
+
+.searchButton {
+  text-align: center;
+  border: none;
+  color: white;
+  background-color: #71a7d3;
+  border-radius: 5px;
+  width: 100%;
+  height: 30px;
+  padding-left: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  outline: solid 1px transparent;
+}
+
+.searchButton:hover {
+  background-color: #618db1;
+}
+
+.resetFiltersButton {
+  text-align: center;
+  border: none;
+  color: rgba(255, 64, 64, 1);
+  background-color: rgba(255, 64, 64, .2);
+  border-radius: 5px;
+  width: 100%;
+  height: 30px;
+  padding-left: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  outline: solid 1px transparent;
+}
+
+.resetFiltersButton.disabled {
+  color: rgba(255, 64, 64, .2);
+  background-color: rgba(255, 64, 64, .1);
+}
