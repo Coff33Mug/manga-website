@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import SearchHeader from './components/SearchHeader'
+import CardContainer from './components/CardContainer';
 
 function App() {
 
@@ -43,138 +44,9 @@ function App() {
               <p className="contentDescription">Funny cat hehe</p>
             </div>
 
-            <div className="contentDisplayCard">
-              <img src="cat.png" />
-              <span className="contentName">ReallyLongCattttttttttttttttttttttttttt</span>
-              <div className="contentStats">
-                <svg fill="#eab308" width="20px" height="20px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M9.362 9.158l-5.268.584c-.19.023-.358.15-.421.343s0 .394.14.521c1.566 1.429 3.919 3.569 3.919 3.569-.002 0-.646 3.113-1.074 5.19-.036.188.032.387.196.506.163.119.373.121.538.028 1.844-1.048 4.606-2.624 4.606-2.624l4.604 2.625c.168.092.378.09.541-.029.164-.119.232-.318.195-.505l-1.071-5.191 3.919-3.566c.14-.131.202-.332.14-.524s-.23-.319-.42-.341c-2.108-.236-5.269-.586-5.269-.586l-2.183-4.83c-.082-.173-.254-.294-.456-.294s-.375.122-.453.294l-2.183 4.83z" />
-                </svg>
-                <p id="rating">5.6</p>
-              </div>
-              <div className="contentStatus">
-                <svg width="24px" height="24px" viewBox="4 5 15 15" fill="#00c9f5" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 9.5C13.3807 9.5 14.5 10.6193 14.5 12C14.5 13.3807 13.3807 14.5 12 14.5C10.6193 14.5 9.5 13.3807 9.5 12C9.5 10.6193 10.6193 9.5 12 9.5Z" />
-                </svg>
-                <p>Completed</p>
-              </div>
-              <div className="contentTags">
-                <div className="contentTag"><span>Comedy</span></div>
-                <div className="contentTag"><span>Horror</span></div>
-              </div>
-              <p className="contentDescription">Cat stories done!</p>
-            </div>
-
-
-            <div className="contentDisplayCard">
-              <img src="cat.png" />
-              <span className="contentName">Cat3</span>
-              <div className="contentStats">
-                <svg fill="#eab308" width="20px" height="20px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M9.362 9.158l-5.268.584c-.19.023-.358.15-.421.343s0 .394.14.521c1.566 1.429 3.919 3.569 3.919 3.569-.002 0-.646 3.113-1.074 5.19-.036.188.032.387.196.506.163.119.373.121.538.028 1.844-1.048 4.606-2.624 4.606-2.624l4.604 2.625c.168.092.378.09.541-.029.164-.119.232-.318.195-.505l-1.071-5.191 3.919-3.566c.14-.131.202-.332.14-.524s-.23-.319-.42-.341c-2.108-.236-5.269-.586-5.269-.586l-2.183-4.83c-.082-.173-.254-.294-.456-.294s-.375.122-.453.294l-2.183 4.83z" />
-                </svg>
-                <p id="rating">9.3</p>
-              </div>
-              <div className="contentStatus">
-                <svg width="24px" height="24px" viewBox="4 5 15 15" fill="#da7500" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 9.5C13.3807 9.5 14.5 10.6193 14.5 12C14.5 13.3807 13.3807 14.5 12 14.5C10.6193 14.5 9.5 13.3807 9.5 12C9.5 10.6193 10.6193 9.5 12 9.5Z" />
-                </svg>
-                <p>Hiatus</p>
-              </div>
-              <p className="contentDescription">Cat stories coming soon.</p>
-            </div>
-
-            <div className="contentDisplayCard">
-              <img src="cat.png" />
-              <span className="contentName">Cat4</span>
-              <div className="contentStats">
-                <svg fill="#eab308" width="20px" height="20px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M9.362 9.158l-5.268.584c-.19.023-.358.15-.421.343s0 .394.14.521c1.566 1.429 3.919 3.569 3.919 3.569-.002 0-.646 3.113-1.074 5.19-.036.188.032.387.196.506.163.119.373.121.538.028 1.844-1.048 4.606-2.624 4.606-2.624l4.604 2.625c.168.092.378.09.541-.029.164-.119.232-.318.195-.505l-1.071-5.191 3.919-3.566c.14-.131.202-.332.14-.524s-.23-.319-.42-.341c-2.108-.236-5.269-.586-5.269-.586l-2.183-4.83c-.082-.173-.254-.294-.456-.294s-.375.122-.453.294l-2.183 4.83z" />
-                </svg>
-                <p id="rating">3.2</p>
-              </div>
-              <div className="contentStatus">
-                <svg width="24px" height="24px" viewBox="4 5 15 15" fill="#7f7f7f" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 9.5C13.3807 9.5 14.5 10.6193 14.5 12C14.5 13.3807 13.3807 14.5 12 14.5C10.6193 14.5 9.5 13.3807 9.5 12C9.5 10.6193 10.6193 9.5 12 9.5Z" />
-                </svg>
-                <p>Cancelled</p>
-              </div>
-              <p className="contentDescription">Cat gone forever...</p>
-            </div>
-
-            <div className="contentDisplayCard">
-              <img src="cat.png" />
-              <span className="contentName">Cat5</span>
-              <div className="contentStats">
-                <svg fill="#eab308" width="20px" height="20px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M9.362 9.158l-5.268.584c-.19.023-.358.15-.421.343s0 .394.14.521c1.566 1.429 3.919 3.569 3.919 3.569-.002 0-.646 3.113-1.074 5.19-.036.188.032.387.196.506.163.119.373.121.538.028 1.844-1.048 4.606-2.624 4.606-2.624l4.604 2.625c.168.092.378.09.541-.029.164-.119.232-.318.195-.505l-1.071-5.191 3.919-3.566c.14-.131.202-.332.14-.524s-.23-.319-.42-.341c-2.108-.236-5.269-.586-5.269-.586l-2.183-4.83c-.082-.173-.254-.294-.456-.294s-.375.122-.453.294l-2.183 4.83z" />
-                </svg>
-                <p id="rating">6.0</p>
-              </div>
-              <div className="contentStatus">
-                <svg width="24px" height="24px" viewBox="4 5 15 15" fill="lime" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 9.5C13.3807 9.5 14.5 10.6193 14.5 12C14.5 13.3807 13.3807 14.5 12 14.5C10.6193 14.5 9.5 13.3807 9.5 12C9.5 10.6193 10.6193 9.5 12 9.5Z" />
-                </svg>
-                <p>Ongoing</p>
-              </div>
-              <p className="contentDescription">Really long descriptionnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn</p>
-            </div>
-
-            <div className="contentDisplayCard">
-              <img src="cat.png" />
-              <span className="contentName">Cat6</span>
-              <div className="contentStats">
-                <svg fill="#eab308" width="20px" height="20px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M9.362 9.158l-5.268.584c-.19.023-.358.15-.421.343s0 .394.14.521c1.566 1.429 3.919 3.569 3.919 3.569-.002 0-.646 3.113-1.074 5.19-.036.188.032.387.196.506.163.119.373.121.538.028 1.844-1.048 4.606-2.624 4.606-2.624l4.604 2.625c.168.092.378.09.541-.029.164-.119.232-.318.195-.505l-1.071-5.191 3.919-3.566c.14-.131.202-.332.14-.524s-.23-.319-.42-.341c-2.108-.236-5.269-.586-5.269-.586l-2.183-4.83c-.082-.173-.254-.294-.456-.294s-.375.122-.453.294l-2.183 4.83z" />
-                </svg>
-                <p id="rating">3.8</p>
-              </div>
-              <div className="contentStatus">
-                <svg width="24px" height="24px" viewBox="4 5 15 15" fill="lime" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 9.5C13.3807 9.5 14.5 10.6193 14.5 12C14.5 13.3807 13.3807 14.5 12 14.5C10.6193 14.5 9.5 13.3807 9.5 12C9.5 10.6193 10.6193 9.5 12 9.5Z" />
-                </svg>
-                <p>Ongoing</p>
-              </div>
-              <p className="contentDescription">Funny cat hehe</p>
-            </div>
-
-            {/* Indentation is good up til here */}
-            
-            <div className="contentDisplayCard">
-              <img src="cat.png" />
-              <span className="contentName">Cat7</span>
-              <div className="contentStats">
-                <svg fill="#eab308" width="20px" height="20px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M9.362 9.158l-5.268.584c-.19.023-.358.15-.421.343s0 .394.14.521c1.566 1.429 3.919 3.569 3.919 3.569-.002 0-.646 3.113-1.074 5.19-.036.188.032.387.196.506.163.119.373.121.538.028 1.844-1.048 4.606-2.624 4.606-2.624l4.604 2.625c.168.092.378.09.541-.029.164-.119.232-.318.195-.505l-1.071-5.191 3.919-3.566c.14-.131.202-.332.14-.524s-.23-.319-.42-.341c-2.108-.236-5.269-.586-5.269-.586l-2.183-4.83c-.082-.173-.254-.294-.456-.294s-.375.122-.453.294l-2.183 4.83z" />
-                </svg>
-                <p id="rating">5.7</p>
-              </div>
-              <div className="contentStatus">
-                <svg width="24px" height="24px" viewBox="4 5 15 15" fill="lime" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 9.5C13.3807 9.5 14.5 10.6193 14.5 12C14.5 13.3807 13.3807 14.5 12 14.5C10.6193 14.5 9.5 13.3807 9.5 12C9.5 10.6193 10.6193 9.5 12 9.5Z" />
-                </svg>
-                <p>Ongoing</p>
-              </div>
-              <p className="contentDescription">Funny cat hehe</p>
-            </div>
-
-            <div className="contentDisplayCard">
-              <img src="cat.png" />
-              <span className="contentName">Cat8</span>
-              <div className="contentStats">
-                <svg fill="#eab308" width="20px" height="20px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M9.362 9.158l-5.268.584c-.19.023-.358.15-.421.343s0 .394.14.521c1.566 1.429 3.919 3.569 3.919 3.569-.002 0-.646 3.113-1.074 5.19-.036.188.032.387.196.506.163.119.373.121.538.028 1.844-1.048 4.606-2.624 4.606-2.624l4.604 2.625c.168.092.378.09.541-.029.164-.119.232-.318.195-.505l-1.071-5.191 3.919-3.566c.14-.131.202-.332.14-.524s-.23-.319-.42-.341c-2.108-.236-5.269-.586-5.269-.586l-2.183-4.83c-.082-.173-.254-.294-.456-.294s-.375.122-.453.294l-2.183 4.83z" />
-                </svg>
-                <p id="rating">0</p>
-              </div>
-              <div className="contentStatus">
-                <svg width="24px" height="24px" viewBox="4 5 15 15" fill="lime" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 9.5C13.3807 9.5 14.5 10.6193 14.5 12C14.5 13.3807 13.3807 14.5 12 14.5C10.6193 14.5 9.5 13.3807 9.5 12C9.5 10.6193 10.6193 9.5 12 9.5Z" />
-                </svg>
-                <p>Ongoing</p>
-              </div>
-              <p className="contentDescription">Funny cat hehe</p>
-            </div>
+            <CardContainer title={"ReallyLongCattttttttttttttttttttttttttt"} rating={5.6} tags={''} status={"Completed"} description={"Cat stories done"} image={'cat.png'}/>
+            <CardContainer title={"Cat3"} rating={6.0} tags={''} status={"Cancelled"} description={"Really long descriptionnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn!"} image={'cat.png'}/>
+            <CardContainer title={"Cat4"} rating={9.7} tags={''} status={"Hiatus"} description={"Dynamically component???"} image={'cat.png'}/>
           </div>
 
           <div style={{ display: "flex", justifyContent: "center" }}>
@@ -193,6 +65,7 @@ function App() {
           </div>
         </div>
 
+        {/* TODO: Make components of account information */}
         <div className="accountElementSideBar">
           <div className="accountInformation">
             <img id="accountProfilePicture" src="cat.png" />
