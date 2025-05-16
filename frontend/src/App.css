@@ -833,6 +833,7 @@ button {
       grid-template-rows: repeat(3, 0px);
   }
 
+  /* May not be needed */
   #accountProfilePictureButton {
       display: flex;
   }

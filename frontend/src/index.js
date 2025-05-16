@@ -62,10 +62,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    setTimeout(() => {
-        tagFilterContainer.classList.remove("noanimation");
-    }, 150);
-
     // Window event listener that checks that if the screen is too small and
     // tag filter container is open -> prevent scrolling
     window.addEventListener('resize', () => {

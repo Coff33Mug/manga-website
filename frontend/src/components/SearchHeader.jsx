@@ -1,29 +1,60 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './SearchHeader.css';
 
 export default function SearchHeader() {
 
-  const[format, setFormat] = useState('');
+  const [format, setFormat] = useState('');
+  const [filterElementVisibility, setFilterElementVisibility] = useState('hidden');
+  const [tagFilterVisibility, setTagFilterVisibility] = useState('initialHidden');
+  const [accountElementVisibility, setAccountElementVisibility] = useState('hidden');
+
+  function toggleFilterElementVisibility() {
+    // Toggles hidden
+    setFilterElementVisibility(prevState => (prevState ? '' : 'hidden'));
+
+    // Closes filter popup if it's open when you press the filter button
+    if (tagFilterVisibility == '') {
+      toggleTagFilterVisibility('hidden');
+    }
+  }
+
+  // Toggle for tags window
+  function toggleTagFilterVisibility() {
+    if (tagFilterVisibility == 'initialHidden' || tagFilterVisibility == 'hidden') {
+      setTagFilterVisibility('');
+    } else {
+      setTagFilterVisibility('hidden');
+    }
+  }
+
+  function toggleAccountElementVisibility() {
+    setAccountElementVisibility(prevState => (prevState ? '' : 'hidden'));
+  }
+
+  useState(() => {
+    
+  }, []);
+
   
   return (
       <>
         <div style={{ display: "flex", flexWrap: "nowrap", gap: 5 }}>
           <input id="searchBar" type="text" placeholder="Search..." autoComplete="off"/>
-          <button id="filterButton">Filter</button>
-          <button id="accountProfilePictureButton">
+          <button id="filterButton" onClick={() => toggleFilterElementVisibility()}>Filter</button>
+          <button id="accountProfilePictureButton" onClick={() => toggleAccountElementVisibility()}>
             <img src="cat.png" id="accountProfileAvatar" />
           </button>
         </div>
 
         {/* Hidden toggle from accountProfilePictureButton */}
-        <div className="accountElementDropDown hidden" id="accountElementDropDown">
+        <div className={`accountElementDropDown ${accountElementVisibility}`} id="accountElementDropDown">
           <a href="" className="navigationButton">Profile</a>
           <a href="" className="darkNavigationButton">Followed</a>
           <a href="" className="darkNavigationButton">My Lists</a>
         </div>
 
         {/* Hidden toggle from filterButton */}
-        <div className="filterElement hidden" id="filterElement">
+        <div className={`filterElement ${filterElementVisibility}`} id="filterElement">
           <div className="dropDownElement">
             <label htmlFor="sortBySelect">Sort by</label>
             <select name="sortBySelect" className="selectElement">
@@ -36,14 +67,14 @@ export default function SearchHeader() {
           <div className="dropDownElement">
             <div style={{ display: "flex", flexDirection: "column" }}>
               <label htmlFor="tagsButton">Filter tags</label>
-              <button name="tagsButton" className="tagsButton" id="tagsButton">
+              <button name="tagsButton" className="tagsButton" id="tagsButton" onClick={() => toggleTagFilterVisibility()}>
                 <span id="tagsButtonText">None</span>
               </button>
             </div>
 
             {/* Pop up tag filtering container */}
             {/* Hidden toggle from tagsButton */}
-            <div className="tagFilterContainer initialHidden" id="tagFilterContainer">
+            <div className={`tagFilterContainer ${tagFilterVisibility}`} id="tagFilterContainer">
               <div style={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
                 <span style={{ fontSize: 20, color: "white" }}>Filters</span>
                 <button id="closeTagFilterContainerButton">
